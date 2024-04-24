@@ -1,0 +1,13 @@
+D:\Учеба\ООП\InterpolFile\InterpolFile\obj\Debug\InterpolFile.csproj.AssemblyReference.cache
+D:\Учеба\ООП\InterpolFile\InterpolFile\obj\Debug\InterpolFile.MainForm.resources
+D:\Учеба\ООП\InterpolFile\InterpolFile\obj\Debug\InterpolFile.Properties.Resources.resources
+D:\Учеба\ООП\InterpolFile\InterpolFile\obj\Debug\InterpolFile.csproj.GenerateResource.cache
+D:\Учеба\ООП\InterpolFile\InterpolFile\obj\Debug\InterpolFile.csproj.CoreCompileInputs.cache
+D:\Учеба\ООП\InterpolFile\InterpolFile\bin\Debug\InterpolFile.exe.config
+D:\Учеба\ООП\InterpolFile\InterpolFile\bin\Debug\InterpolFile.exe
+D:\Учеба\ООП\InterpolFile\InterpolFile\bin\Debug\InterpolFile.pdb
+D:\Учеба\ООП\InterpolFile\InterpolFile\obj\Debug\InterpolFile.exe
+D:\Учеба\ООП\InterpolFile\InterpolFile\obj\Debug\InterpolFile.pdb
+D:\Учеба\ООП\InterpolFile\InterpolFile\obj\Debug\InterpolFile.Controls.UC_Archive.resources
+D:\Учеба\ООП\InterpolFile\InterpolFile\obj\Debug\InterpolFile.Controls.UC_Criminals.resources
+D:\Учеба\ООП\InterpolFile\InterpolFile\obj\Debug\InterpolFile.Controls.UC_Home.resources
