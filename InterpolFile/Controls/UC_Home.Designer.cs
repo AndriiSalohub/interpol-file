@@ -28,25 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.title = new System.Windows.Forms.Label();
+            this.subtitle = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
+            // title
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(280, 214);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(249, 28);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Домашня Сторінка";
+            this.title.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.title.AutoSize = true;
+            this.title.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.title.Location = new System.Drawing.Point(235, 181);
+            this.title.Name = "title";
+            this.title.Size = new System.Drawing.Size(332, 36);
+            this.title.TabIndex = 1;
+            this.title.Text = "Картотека Інтерполу";
+            // 
+            // subtitle
+            // 
+            this.subtitle.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.subtitle.Font = new System.Drawing.Font("Century Gothic", 12.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.subtitle.Location = new System.Drawing.Point(238, 217);
+            this.subtitle.Name = "subtitle";
+            this.subtitle.Size = new System.Drawing.Size(329, 78);
+            this.subtitle.TabIndex = 2;
+            this.subtitle.Text = " Застосунок призначений для зберігання та обробки інформації про злочинців";
+            this.subtitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UC_Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.subtitle);
+            this.Controls.Add(this.title);
             this.Font = new System.Drawing.Font("Century Gothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "UC_Home";
@@ -58,6 +71,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label title;
+        private System.Windows.Forms.Label subtitle;
     }
 }

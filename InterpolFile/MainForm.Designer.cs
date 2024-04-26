@@ -32,11 +32,8 @@
             this.archiveButton = new System.Windows.Forms.Button();
             this.criminalsButton = new System.Windows.Forms.Button();
             this.homeButton = new System.Windows.Forms.Button();
-            this.footerPanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.containerPanel = new System.Windows.Forms.Panel();
             this.navigationPanel.SuspendLayout();
-            this.footerPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // navigationPanel
@@ -90,29 +87,6 @@
             this.homeButton.UseVisualStyleBackColor = true;
             this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
-            // footerPanel
-            // 
-            this.footerPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.footerPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(18)))), ((int)(((byte)(67)))));
-            this.footerPanel.Controls.Add(this.label1);
-            this.footerPanel.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.footerPanel.ForeColor = System.Drawing.Color.White;
-            this.footerPanel.Location = new System.Drawing.Point(0, 391);
-            this.footerPanel.Name = "footerPanel";
-            this.footerPanel.Size = new System.Drawing.Size(804, 65);
-            this.footerPanel.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(275, 21);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(255, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Created by Andrii Salohub";
-            // 
             // containerPanel
             // 
             this.containerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -126,15 +100,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(804, 456);
-            this.Controls.Add(this.footerPanel);
             this.Controls.Add(this.navigationPanel);
             this.Controls.Add(this.containerPanel);
             this.MinimumSize = new System.Drawing.Size(600, 420);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.navigationPanel.ResumeLayout(false);
-            this.footerPanel.ResumeLayout(false);
-            this.footerPanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -145,8 +116,6 @@
         private System.Windows.Forms.Button homeButton;
         private System.Windows.Forms.Button archiveButton;
         private System.Windows.Forms.Button criminalsButton;
-        private System.Windows.Forms.Panel footerPanel;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel containerPanel;
     }
 }
