@@ -38,7 +38,7 @@
             // 
             // navigationPanel
             // 
-            this.navigationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.navigationPanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.navigationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(18)))), ((int)(((byte)(67)))));
             this.navigationPanel.Controls.Add(this.archiveButton);
@@ -55,11 +55,11 @@
             // 
             this.archiveButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.archiveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.archiveButton.Location = new System.Drawing.Point(325, 13);
+            this.archiveButton.Location = new System.Drawing.Point(516, 13);
             this.archiveButton.Name = "archiveButton";
             this.archiveButton.Size = new System.Drawing.Size(155, 55);
             this.archiveButton.TabIndex = 2;
-            this.archiveButton.Text = "Список Злочинців";
+            this.archiveButton.Text = "Архів";
             this.archiveButton.UseVisualStyleBackColor = true;
             this.archiveButton.Click += new System.EventHandler(this.archiveButton_Click);
             // 
@@ -67,11 +67,11 @@
             // 
             this.criminalsButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.criminalsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.criminalsButton.Location = new System.Drawing.Point(516, 13);
+            this.criminalsButton.Location = new System.Drawing.Point(325, 13);
             this.criminalsButton.Name = "criminalsButton";
             this.criminalsButton.Size = new System.Drawing.Size(155, 55);
             this.criminalsButton.TabIndex = 3;
-            this.criminalsButton.Text = "Архів";
+            this.criminalsButton.Text = "Список Злочинців";
             this.criminalsButton.UseVisualStyleBackColor = true;
             this.criminalsButton.Click += new System.EventHandler(this.criminalsButton_Click);
             // 
