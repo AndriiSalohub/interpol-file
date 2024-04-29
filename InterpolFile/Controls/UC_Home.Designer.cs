@@ -37,7 +37,7 @@
             this.title.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.title.AutoSize = true;
             this.title.Font = new System.Drawing.Font("Century Gothic", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.title.Location = new System.Drawing.Point(235, 181);
+            this.title.Location = new System.Drawing.Point(253, 213);
             this.title.Name = "title";
             this.title.Size = new System.Drawing.Size(332, 36);
             this.title.TabIndex = 1;
@@ -47,7 +47,7 @@
             // 
             this.subtitle.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.subtitle.Font = new System.Drawing.Font("Century Gothic", 12.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.subtitle.Location = new System.Drawing.Point(238, 217);
+            this.subtitle.Location = new System.Drawing.Point(256, 249);
             this.subtitle.Name = "subtitle";
             this.subtitle.Size = new System.Drawing.Size(329, 78);
             this.subtitle.TabIndex = 2;
@@ -63,7 +63,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "UC_Home";
-            this.Size = new System.Drawing.Size(804, 456);
+            this.Size = new System.Drawing.Size(840, 520);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -36,14 +36,14 @@ namespace InterpolFile
 
         private void archiveButton_Click(object sender, EventArgs e)
         {
-            UC_Criminals criminals = new UC_Criminals();
-            addUserControl(criminals);
+            UC_Archive archive = new UC_Archive();
+            addUserControl(archive);
         }
 
         private void criminalsButton_Click(object sender, EventArgs e)
         {
-            UC_Archive archive = new UC_Archive();
-            addUserControl(archive);
+            UC_Criminals criminals = new UC_Criminals();
+            addUserControl(criminals);
         }
     }
 }
