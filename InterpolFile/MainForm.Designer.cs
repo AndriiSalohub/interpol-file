@@ -47,14 +47,14 @@
             this.navigationPanel.ForeColor = System.Drawing.Color.White;
             this.navigationPanel.Location = new System.Drawing.Point(0, 0);
             this.navigationPanel.Name = "navigationPanel";
-            this.navigationPanel.Size = new System.Drawing.Size(824, 80);
+            this.navigationPanel.Size = new System.Drawing.Size(1254, 80);
             this.navigationPanel.TabIndex = 0;
             // 
             // archiveButton
             // 
             this.archiveButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.archiveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.archiveButton.Location = new System.Drawing.Point(526, 13);
+            this.archiveButton.Location = new System.Drawing.Point(741, 13);
             this.archiveButton.Name = "archiveButton";
             this.archiveButton.Size = new System.Drawing.Size(155, 55);
             this.archiveButton.TabIndex = 3;
@@ -66,7 +66,7 @@
             // 
             this.criminalsButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.criminalsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.criminalsButton.Location = new System.Drawing.Point(335, 13);
+            this.criminalsButton.Location = new System.Drawing.Point(550, 13);
             this.criminalsButton.Name = "criminalsButton";
             this.criminalsButton.Size = new System.Drawing.Size(155, 55);
             this.criminalsButton.TabIndex = 2;
@@ -78,7 +78,7 @@
             // 
             this.homeButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.homeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.homeButton.Location = new System.Drawing.Point(144, 13);
+            this.homeButton.Location = new System.Drawing.Point(359, 13);
             this.homeButton.Name = "homeButton";
             this.homeButton.Size = new System.Drawing.Size(155, 55);
             this.homeButton.TabIndex = 1;
@@ -88,20 +88,20 @@
             // 
             // containerPanel
             // 
-            this.containerPanel.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.containerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.containerPanel.Location = new System.Drawing.Point(0, 0);
             this.containerPanel.Name = "containerPanel";
-            this.containerPanel.Size = new System.Drawing.Size(824, 481);
+            this.containerPanel.Size = new System.Drawing.Size(1254, 931);
             this.containerPanel.TabIndex = 2;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(824, 481);
+            this.ClientSize = new System.Drawing.Size(1254, 931);
             this.Controls.Add(this.navigationPanel);
             this.Controls.Add(this.containerPanel);
-            this.MinimumSize = new System.Drawing.Size(840, 520);
+            this.MinimumSize = new System.Drawing.Size(1270, 970);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.navigationPanel.ResumeLayout(false);

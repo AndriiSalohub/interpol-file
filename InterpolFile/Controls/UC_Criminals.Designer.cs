@@ -57,6 +57,17 @@
             this.languages = new System.Windows.Forms.Label();
             this.criminalFormPanel = new System.Windows.Forms.Panel();
             this.addCriminalButton = new System.Windows.Forms.Button();
+            this.criminalsList = new System.Windows.Forms.ListView();
+            this.fullName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.hair = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.eyes = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.h = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.alies = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.something = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.prof = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.crime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.langs = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.location = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.criminalFormPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,7 +76,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(307, 111);
+            this.label1.Location = new System.Drawing.Point(522, 111);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(226, 28);
             this.label1.TabIndex = 1;
@@ -309,7 +320,7 @@
             this.criminalFormPanel.Controls.Add(this.alias);
             this.criminalFormPanel.Controls.Add(this.eyesColor);
             this.criminalFormPanel.Controls.Add(this.eyesColorTextBox);
-            this.criminalFormPanel.Location = new System.Drawing.Point(51, 160);
+            this.criminalFormPanel.Location = new System.Drawing.Point(266, 160);
             this.criminalFormPanel.Name = "criminalFormPanel";
             this.criminalFormPanel.Size = new System.Drawing.Size(738, 262);
             this.criminalFormPanel.TabIndex = 32;
@@ -317,24 +328,97 @@
             // addCriminalButton
             // 
             this.addCriminalButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.addCriminalButton.Location = new System.Drawing.Point(332, 428);
+            this.addCriminalButton.Location = new System.Drawing.Point(547, 428);
             this.addCriminalButton.Name = "addCriminalButton";
             this.addCriminalButton.Size = new System.Drawing.Size(176, 45);
             this.addCriminalButton.TabIndex = 16;
             this.addCriminalButton.Text = "Додати Злочинця";
             this.addCriminalButton.UseVisualStyleBackColor = true;
             // 
+            // criminalsList
+            // 
+            this.criminalsList.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.criminalsList.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.fullName,
+            this.hair,
+            this.eyes,
+            this.h,
+            this.alies,
+            this.something,
+            this.prof,
+            this.crime,
+            this.langs,
+            this.location});
+            this.criminalsList.HideSelection = false;
+            this.criminalsList.Location = new System.Drawing.Point(67, 512);
+            this.criminalsList.Name = "criminalsList";
+            this.criminalsList.Size = new System.Drawing.Size(1136, 314);
+            this.criminalsList.TabIndex = 33;
+            this.criminalsList.UseCompatibleStateImageBehavior = false;
+            this.criminalsList.View = System.Windows.Forms.View.Details;
+            // 
+            // fullName
+            // 
+            this.fullName.Text = "Ім\'я та Прізвище";
+            this.fullName.Width = 150;
+            // 
+            // hair
+            // 
+            this.hair.Text = "Колір волосся";
+            this.hair.Width = 125;
+            // 
+            // eyes
+            // 
+            this.eyes.Text = "Колір очей";
+            this.eyes.Width = 95;
+            // 
+            // h
+            // 
+            this.h.Text = "Зріст";
+            this.h.Width = 55;
+            // 
+            // alies
+            // 
+            this.alies.Text = "Кличка";
+            this.alies.Width = 67;
+            // 
+            // something
+            // 
+            this.something.Text = "Особливі прикмети";
+            this.something.Width = 170;
+            // 
+            // prof
+            // 
+            this.prof.Text = "Професія";
+            this.prof.Width = 95;
+            // 
+            // crime
+            // 
+            this.crime.Text = "Остання справа";
+            this.crime.Width = 145;
+            // 
+            // langs
+            // 
+            this.langs.Text = "Мови";
+            this.langs.Width = 55;
+            // 
+            // location
+            // 
+            this.location.Text = "Місцезнаходження";
+            this.location.Width = 170;
+            // 
             // UC_Criminals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.criminalsList);
             this.Controls.Add(this.addCriminalButton);
             this.Controls.Add(this.criminalFormPanel);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "UC_Criminals";
-            this.Size = new System.Drawing.Size(840, 520);
+            this.Size = new System.Drawing.Size(1270, 970);
             this.criminalFormPanel.ResumeLayout(false);
             this.criminalFormPanel.PerformLayout();
             this.ResumeLayout(false);
@@ -373,5 +457,16 @@
         private System.Windows.Forms.Label languages;
         private System.Windows.Forms.Panel criminalFormPanel;
         private System.Windows.Forms.Button addCriminalButton;
+        private System.Windows.Forms.ListView criminalsList;
+        private System.Windows.Forms.ColumnHeader fullName;
+        private System.Windows.Forms.ColumnHeader hair;
+        private System.Windows.Forms.ColumnHeader eyes;
+        private System.Windows.Forms.ColumnHeader h;
+        private System.Windows.Forms.ColumnHeader alies;
+        private System.Windows.Forms.ColumnHeader something;
+        private System.Windows.Forms.ColumnHeader prof;
+        private System.Windows.Forms.ColumnHeader crime;
+        private System.Windows.Forms.ColumnHeader langs;
+        private System.Windows.Forms.ColumnHeader location;
     }
 }
