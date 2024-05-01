@@ -10,35 +10,35 @@ namespace InterpolFile.Models
     {
         public string LastName { get; set; }
         public string FirstName { get; set; }
-        public string Nickname { get; set; }
-        public double Height { get; set; }
         public string HairColor { get; set; }
         public string EyeColor { get; set; }
-        public string DistinguishingFeatures { get; set; }
+        public int Height { get; set; }
+        public string DateOfBirth { get; set; }
         public string BirthPlace { get; set; }
-        public DateTime DateOfBirth { get; set; }
-        public string LastKnownResidence { get; set; }
-        public List<string> LanguagesKnown { get; set; }
+        public string Alias { get; set; }
+        public string DistinguishingFeatures { get; set; }
         public string CriminalProfession { get; set; }
         public string LastCase { get; set; }
+        public List<string> LanguagesKnown { get; set; }
+        public string LastKnownResidence { get; set; }
 
-        public Criminal(string lastName, string firstName, string nickname, double height, string hairColor, string eyeColor,
-                        string distinguishingFeatures, string birthPlace, DateTime dateOfBirth, string lastKnownResidence,
-                        List<string> languagesKnown, string criminalProfession, string lastCase)
+        public Criminal(string firstName, string lastName, string hairColor, string eyeColor, int height,
+                       string dateOfBirth, string birthPlace, string alias, string distinguishingFeatures,
+                       string criminalProfession, string lastCase, List<string> languagesKnown, string lastKnownResidence)
         {
-            LastName = lastName;
             FirstName = firstName;
-            Nickname = nickname;
-            Height = height;
+            LastName = lastName;
             HairColor = hairColor;
             EyeColor = eyeColor;
-            DistinguishingFeatures = distinguishingFeatures;
+            Height = height;
             BirthPlace = birthPlace;
             DateOfBirth = dateOfBirth;
-            LastKnownResidence = lastKnownResidence;
-            LanguagesKnown = languagesKnown;
+            Alias = alias;
+            DistinguishingFeatures = distinguishingFeatures;
             CriminalProfession = criminalProfession;
             LastCase = lastCase;
+            LanguagesKnown = languagesKnown;
+            LastKnownResidence = lastKnownResidence;
         }
     }
 }

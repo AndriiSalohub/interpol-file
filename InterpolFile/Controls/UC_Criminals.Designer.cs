@@ -33,7 +33,6 @@
             this.firstName = new System.Windows.Forms.Label();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
             this.lastName = new System.Windows.Forms.Label();
-            this.heightTextBox = new System.Windows.Forms.TextBox();
             this.height = new System.Windows.Forms.Label();
             this.birthPlaceTextBox = new System.Windows.Forms.TextBox();
             this.hairColorTextBox = new System.Windows.Forms.TextBox();
@@ -56,6 +55,7 @@
             this.languagesTextBox = new System.Windows.Forms.TextBox();
             this.languages = new System.Windows.Forms.Label();
             this.criminalFormPanel = new System.Windows.Forms.Panel();
+            this.heightUpDown = new System.Windows.Forms.NumericUpDown();
             this.addCriminalButton = new System.Windows.Forms.Button();
             this.criminalsList = new System.Windows.Forms.ListView();
             this.fullName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -68,7 +68,9 @@
             this.crime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.langs = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.location = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.button1 = new System.Windows.Forms.Button();
             this.criminalFormPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -114,13 +116,6 @@
             this.lastName.Size = new System.Drawing.Size(89, 21);
             this.lastName.TabIndex = 6;
             this.lastName.Text = "Прізвище:";
-            // 
-            // heightTextBox
-            // 
-            this.heightTextBox.Location = new System.Drawing.Point(610, 52);
-            this.heightTextBox.Name = "heightTextBox";
-            this.heightTextBox.Size = new System.Drawing.Size(107, 27);
-            this.heightTextBox.TabIndex = 8;
             // 
             // height
             // 
@@ -294,6 +289,7 @@
             // criminalFormPanel
             // 
             this.criminalFormPanel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.criminalFormPanel.Controls.Add(this.heightUpDown);
             this.criminalFormPanel.Controls.Add(this.firstName);
             this.criminalFormPanel.Controls.Add(this.lastKnownPlace);
             this.criminalFormPanel.Controls.Add(this.firstNameTextBox);
@@ -304,7 +300,6 @@
             this.criminalFormPanel.Controls.Add(this.languages);
             this.criminalFormPanel.Controls.Add(this.height);
             this.criminalFormPanel.Controls.Add(this.lastCrime);
-            this.criminalFormPanel.Controls.Add(this.heightTextBox);
             this.criminalFormPanel.Controls.Add(this.lastCrimeTextBox);
             this.criminalFormPanel.Controls.Add(this.birth);
             this.criminalFormPanel.Controls.Add(this.proffesionTextBox);
@@ -325,6 +320,13 @@
             this.criminalFormPanel.Size = new System.Drawing.Size(738, 262);
             this.criminalFormPanel.TabIndex = 32;
             // 
+            // heightUpDown
+            // 
+            this.heightUpDown.Location = new System.Drawing.Point(608, 52);
+            this.heightUpDown.Name = "heightUpDown";
+            this.heightUpDown.Size = new System.Drawing.Size(107, 27);
+            this.heightUpDown.TabIndex = 8;
+            // 
             // addCriminalButton
             // 
             this.addCriminalButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -334,6 +336,7 @@
             this.addCriminalButton.TabIndex = 16;
             this.addCriminalButton.Text = "Додати Злочинця";
             this.addCriminalButton.UseVisualStyleBackColor = true;
+            this.addCriminalButton.Click += new System.EventHandler(this.addCriminalButton_Click);
             // 
             // criminalsList
             // 
@@ -407,10 +410,20 @@
             this.location.Text = "Місцезнаходження";
             this.location.Width = 170;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(227, 96);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(135, 43);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // UC_Criminals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.criminalsList);
             this.Controls.Add(this.addCriminalButton);
             this.Controls.Add(this.criminalFormPanel);
@@ -421,6 +434,7 @@
             this.Size = new System.Drawing.Size(1270, 970);
             this.criminalFormPanel.ResumeLayout(false);
             this.criminalFormPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -433,7 +447,6 @@
         private System.Windows.Forms.Label firstName;
         private System.Windows.Forms.TextBox lastNameTextBox;
         private System.Windows.Forms.Label lastName;
-        private System.Windows.Forms.TextBox heightTextBox;
         private System.Windows.Forms.Label height;
         private System.Windows.Forms.TextBox birthPlaceTextBox;
         private System.Windows.Forms.TextBox hairColorTextBox;
@@ -468,5 +481,7 @@
         private System.Windows.Forms.ColumnHeader crime;
         private System.Windows.Forms.ColumnHeader langs;
         private System.Windows.Forms.ColumnHeader location;
+        private System.Windows.Forms.NumericUpDown heightUpDown;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -9,11 +9,14 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using InterpolFile.Controls;
+using InterpolFile.Models;
 
 namespace InterpolFile
 {
     public partial class MainForm : Form
     {
+        FileIndex fileIndex = new FileIndex();
+
         public MainForm()
         {
             InitializeComponent();
@@ -42,7 +45,7 @@ namespace InterpolFile
 
         private void criminalsButton_Click(object sender, EventArgs e)
         {
-            UC_Criminals criminals = new UC_Criminals();
+            UC_Criminals criminals = new UC_Criminals(fileIndex);
             addUserControl(criminals);
         }
     }
