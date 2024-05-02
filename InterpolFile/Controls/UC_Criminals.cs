@@ -47,28 +47,12 @@ namespace InterpolFile.Controls
                 item.SubItems.Add(criminal.LastCase);
                 item.SubItems.Add(String.Join(", ", criminal.LanguagesKnown));  // Пример, если LanguagesKnown - это список
                 item.SubItems.Add(criminal.LastKnownResidence);
+                item.SubItems.Add(criminal.DateOfBirth);
+                item.SubItems.Add(criminal.BirthPlace);
 
                 criminalsList.Items.Add(item);
             }
 
         }
-
-
-
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    fileIndex.AddCriminal(firstNameTextBox.Text, lastNameTextBox.Text,
-        //        eyesColorTextBox.Text, hairColorTextBox.Text,
-        //        (int)heightUpDown.Value, birthTextBox.Text, birthPlaceTextBox.Text,
-        //        alias.Text, distinguishingFeaturesTextBox.Text,
-        //        proffesionTextBox.Text, lastCrimeTextBox.Text,
-        //        languagesTextBox.Text.Split(',').ToList(), lastKnownPlaceTextBox.Text);
-
-        //    foreach (var criminal in fileIndex.Criminals)
-        //    {
-        //        MessageBox.Show("sdfsdf");
-        //        criminalsList.Items.Add(criminal.FirstName);
-        //    }
-        //}
     }
 }

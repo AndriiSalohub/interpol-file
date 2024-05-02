@@ -1,4 +1,6 @@
-﻿namespace InterpolFile
+﻿using System.Drawing;
+
+namespace InterpolFile
 {
     partial class MainForm
     {
@@ -28,33 +30,48 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.navigationPanel = new System.Windows.Forms.Panel();
             this.archiveButton = new System.Windows.Forms.Button();
             this.criminalsButton = new System.Windows.Forms.Button();
             this.homeButton = new System.Windows.Forms.Button();
             this.containerPanel = new System.Windows.Forms.Panel();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menu = new System.Windows.Forms.MenuStrip();
+            this.divider = new System.Windows.Forms.Panel();
             this.navigationPanel.SuspendLayout();
+            this.menu.SuspendLayout();
             this.SuspendLayout();
             // 
             // navigationPanel
             // 
             this.navigationPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(19)))), ((int)(((byte)(18)))), ((int)(((byte)(67)))));
+            this.navigationPanel.Controls.Add(this.divider);
             this.navigationPanel.Controls.Add(this.archiveButton);
             this.navigationPanel.Controls.Add(this.criminalsButton);
             this.navigationPanel.Controls.Add(this.homeButton);
             this.navigationPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.navigationPanel.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.navigationPanel.ForeColor = System.Drawing.Color.White;
-            this.navigationPanel.Location = new System.Drawing.Point(0, 0);
+            this.navigationPanel.Location = new System.Drawing.Point(0, 27);
             this.navigationPanel.Name = "navigationPanel";
-            this.navigationPanel.Size = new System.Drawing.Size(1254, 80);
-            this.navigationPanel.TabIndex = 0;
+            this.navigationPanel.Size = new System.Drawing.Size(1484, 80);
+            this.navigationPanel.TabIndex = 3;
             // 
             // archiveButton
             // 
             this.archiveButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.archiveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.archiveButton.Location = new System.Drawing.Point(741, 13);
+            this.archiveButton.Location = new System.Drawing.Point(856, 13);
             this.archiveButton.Name = "archiveButton";
             this.archiveButton.Size = new System.Drawing.Size(155, 55);
             this.archiveButton.TabIndex = 3;
@@ -66,7 +83,7 @@
             // 
             this.criminalsButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.criminalsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.criminalsButton.Location = new System.Drawing.Point(550, 13);
+            this.criminalsButton.Location = new System.Drawing.Point(665, 13);
             this.criminalsButton.Name = "criminalsButton";
             this.criminalsButton.Size = new System.Drawing.Size(155, 55);
             this.criminalsButton.TabIndex = 2;
@@ -78,7 +95,7 @@
             // 
             this.homeButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.homeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.homeButton.Location = new System.Drawing.Point(359, 13);
+            this.homeButton.Location = new System.Drawing.Point(474, 13);
             this.homeButton.Name = "homeButton";
             this.homeButton.Size = new System.Drawing.Size(155, 55);
             this.homeButton.TabIndex = 1;
@@ -89,33 +106,158 @@
             // containerPanel
             // 
             this.containerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.containerPanel.Location = new System.Drawing.Point(0, 0);
+            this.containerPanel.Location = new System.Drawing.Point(0, 107);
             this.containerPanel.Name = "containerPanel";
-            this.containerPanel.Size = new System.Drawing.Size(1254, 931);
-            this.containerPanel.TabIndex = 2;
+            this.containerPanel.Size = new System.Drawing.Size(1484, 824);
+            this.containerPanel.TabIndex = 4;
+            // 
+            // fileToolStripMenuItem
+            // 
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.newToolStripMenuItem,
+            this.openToolStripMenuItem,
+            this.toolStripSeparator,
+            this.saveToolStripMenuItem,
+            this.saveAsToolStripMenuItem,
+            this.toolStripSeparator2,
+            this.exitToolStripMenuItem});
+            this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(40, 21);
+            this.fileToolStripMenuItem.Text = "&File";
+            this.fileToolStripMenuItem.DropDownClosed += new System.EventHandler(this.fileToolStripMenuItem_DropDownClosed);
+            this.fileToolStripMenuItem.DropDownOpened += new System.EventHandler(this.fileToolStripMenuItem_DropDownOpened);
+            // 
+            // newToolStripMenuItem
+            // 
+            this.newToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("newToolStripMenuItem.Image")));
+            this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.newToolStripMenuItem.Name = "newToolStripMenuItem";
+            this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Text = "&New";
+            // 
+            // openToolStripMenuItem
+            // 
+            this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
+            this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.openToolStripMenuItem.Name = "openToolStripMenuItem";
+            this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Text = "&Open";
+            // 
+            // toolStripSeparator
+            // 
+            this.toolStripSeparator.Name = "toolStripSeparator";
+            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveToolStripMenuItem.Image")));
+            this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Text = "&Save";
+            // 
+            // saveAsToolStripMenuItem
+            // 
+            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Text = "Save &As";
+            // 
+            // toolStripSeparator2
+            // 
+            this.toolStripSeparator2.Name = "toolStripSeparator2";
+            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            // 
+            // exitToolStripMenuItem
+            // 
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Text = "E&xit";
+            this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aboutToolStripMenuItem});
+            this.helpToolStripMenuItem.ForeColor = System.Drawing.Color.White;
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(49, 21);
+            this.helpToolStripMenuItem.Text = "&Help";
+            this.helpToolStripMenuItem.DropDownClosed += new System.EventHandler(this.helpToolStripMenuItem_DropDownClosed);
+            this.helpToolStripMenuItem.DropDownOpened += new System.EventHandler(this.helpToolStripMenuItem_DropDownOpened);
+            // 
+            // aboutToolStripMenuItem
+            // 
+            this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Text = "&About...";
+            // 
+            // menu
+            // 
+            this.menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(16)))), ((int)(((byte)(14)))), ((int)(((byte)(55)))));
+            this.menu.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.menu.ForeColor = System.Drawing.Color.White;
+            this.menu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menu.Location = new System.Drawing.Point(0, 0);
+            this.menu.Name = "menu";
+            this.menu.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
+            this.menu.Size = new System.Drawing.Size(1484, 27);
+            this.menu.TabIndex = 2;
+            this.menu.Text = "menu";
+            // 
+            // divider
+            // 
+            this.divider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.divider.BackColor = System.Drawing.Color.MidnightBlue;
+            this.divider.Location = new System.Drawing.Point(0, 0);
+            this.divider.Name = "divider";
+            this.divider.Size = new System.Drawing.Size(1484, 2);
+            this.divider.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1254, 931);
-            this.Controls.Add(this.navigationPanel);
+            this.ClientSize = new System.Drawing.Size(1484, 931);
             this.Controls.Add(this.containerPanel);
-            this.MinimumSize = new System.Drawing.Size(1270, 970);
+            this.Controls.Add(this.navigationPanel);
+            this.Controls.Add(this.menu);
+            this.MainMenuStrip = this.menu;
+            this.MinimumSize = new System.Drawing.Size(1500, 970);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.navigationPanel.ResumeLayout(false);
+            this.menu.ResumeLayout(false);
+            this.menu.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
-
         private System.Windows.Forms.Panel navigationPanel;
-        private System.Windows.Forms.Button homeButton;
         private System.Windows.Forms.Button archiveButton;
         private System.Windows.Forms.Button criminalsButton;
+        private System.Windows.Forms.Button homeButton;
         private System.Windows.Forms.Panel containerPanel;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator2;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menu;
+        private System.Windows.Forms.Panel divider;
     }
 }
 

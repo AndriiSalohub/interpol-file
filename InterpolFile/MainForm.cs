@@ -48,5 +48,49 @@ namespace InterpolFile
             UC_Criminals criminals = new UC_Criminals(fileIndex);
             addUserControl(criminals);
         }
+
+        private void helpToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
+        {
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+            if (item != null)
+            {
+                item.ForeColor = Color.Black;
+            }
+        }
+
+        private void helpToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
+        {
+
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+            if (item != null)
+            {
+                item.ForeColor = Color.White;
+            }
+        }
+
+        private void fileToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
+        {
+
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+            if (item != null)
+            {
+                item.ForeColor = Color.Black;
+            }
+        }
+
+        private void fileToolStripMenuItem_DropDownClosed(object sender, EventArgs e)
+        {
+
+            ToolStripMenuItem item = sender as ToolStripMenuItem;
+            if (item != null)
+            {
+                item.ForeColor = Color.White;
+            }
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

@@ -68,7 +68,8 @@
             this.crime = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.langs = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.location = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.button1 = new System.Windows.Forms.Button();
+            this.birthDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.placeOfBirth = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.criminalFormPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +79,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(522, 111);
+            this.label1.Location = new System.Drawing.Point(637, 112);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(226, 28);
             this.label1.TabIndex = 1;
@@ -315,7 +316,7 @@
             this.criminalFormPanel.Controls.Add(this.alias);
             this.criminalFormPanel.Controls.Add(this.eyesColor);
             this.criminalFormPanel.Controls.Add(this.eyesColorTextBox);
-            this.criminalFormPanel.Location = new System.Drawing.Point(266, 160);
+            this.criminalFormPanel.Location = new System.Drawing.Point(381, 161);
             this.criminalFormPanel.Name = "criminalFormPanel";
             this.criminalFormPanel.Size = new System.Drawing.Size(738, 262);
             this.criminalFormPanel.TabIndex = 32;
@@ -330,7 +331,7 @@
             // addCriminalButton
             // 
             this.addCriminalButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.addCriminalButton.Location = new System.Drawing.Point(547, 428);
+            this.addCriminalButton.Location = new System.Drawing.Point(662, 429);
             this.addCriminalButton.Name = "addCriminalButton";
             this.addCriminalButton.Size = new System.Drawing.Size(176, 45);
             this.addCriminalButton.TabIndex = 16;
@@ -351,11 +352,13 @@
             this.prof,
             this.crime,
             this.langs,
-            this.location});
+            this.location,
+            this.birthDate,
+            this.placeOfBirth});
             this.criminalsList.HideSelection = false;
-            this.criminalsList.Location = new System.Drawing.Point(67, 512);
+            this.criminalsList.Location = new System.Drawing.Point(18, 500);
             this.criminalsList.Name = "criminalsList";
-            this.criminalsList.Size = new System.Drawing.Size(1136, 314);
+            this.criminalsList.Size = new System.Drawing.Size(1465, 314);
             this.criminalsList.TabIndex = 33;
             this.criminalsList.UseCompatibleStateImageBehavior = false;
             this.criminalsList.View = System.Windows.Forms.View.Details;
@@ -387,43 +390,50 @@
             // 
             // something
             // 
+            this.something.DisplayIndex = 8;
             this.something.Text = "Особливі прикмети";
             this.something.Width = 170;
             // 
             // prof
             // 
+            this.prof.DisplayIndex = 5;
             this.prof.Text = "Професія";
             this.prof.Width = 95;
             // 
             // crime
             // 
+            this.crime.DisplayIndex = 9;
             this.crime.Text = "Остання справа";
             this.crime.Width = 145;
             // 
             // langs
             // 
+            this.langs.DisplayIndex = 10;
             this.langs.Text = "Мови";
             this.langs.Width = 55;
             // 
             // location
             // 
+            this.location.DisplayIndex = 11;
             this.location.Text = "Місцезнаходження";
             this.location.Width = 170;
             // 
-            // button1
+            // birthDate
             // 
-            this.button1.Location = new System.Drawing.Point(227, 96);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(135, 43);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.birthDate.DisplayIndex = 6;
+            this.birthDate.Text = "Дата народження";
+            this.birthDate.Width = 160;
+            // 
+            // placeOfBirth
+            // 
+            this.placeOfBirth.DisplayIndex = 7;
+            this.placeOfBirth.Text = "Місце народження";
+            this.placeOfBirth.Width = 170;
             // 
             // UC_Criminals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.criminalsList);
             this.Controls.Add(this.addCriminalButton);
             this.Controls.Add(this.criminalFormPanel);
@@ -431,7 +441,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "UC_Criminals";
-            this.Size = new System.Drawing.Size(1270, 970);
+            this.Size = new System.Drawing.Size(1500, 970);
             this.criminalFormPanel.ResumeLayout(false);
             this.criminalFormPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).EndInit();
@@ -482,6 +492,7 @@
         private System.Windows.Forms.ColumnHeader langs;
         private System.Windows.Forms.ColumnHeader location;
         private System.Windows.Forms.NumericUpDown heightUpDown;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ColumnHeader birthDate;
+        private System.Windows.Forms.ColumnHeader placeOfBirth;
     }
 }

@@ -36,7 +36,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(381, 246);
+            this.label1.Location = new System.Drawing.Point(596, 471);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(78, 28);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             this.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             this.Name = "UC_Archive";
-            this.Size = new System.Drawing.Size(840, 520);
+            this.Size = new System.Drawing.Size(1270, 970);
             this.ResumeLayout(false);
             this.PerformLayout();
 
