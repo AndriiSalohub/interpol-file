@@ -11,3 +11,4 @@ D:\Учеба\ООП\InterpolFile\InterpolFile\obj\Debug\InterpolFile.pdb
 D:\Учеба\ООП\InterpolFile\InterpolFile\obj\Debug\InterpolFile.Controls.UC_Archive.resources
 D:\Учеба\ООП\InterpolFile\InterpolFile\obj\Debug\InterpolFile.Controls.UC_Criminals.resources
 D:\Учеба\ООП\InterpolFile\InterpolFile\obj\Debug\InterpolFile.Controls.UC_Home.resources
+D:\Учеба\ООП\InterpolFile\InterpolFile\obj\Debug\InterpolFile.Forms.CriminalEditForm.resources

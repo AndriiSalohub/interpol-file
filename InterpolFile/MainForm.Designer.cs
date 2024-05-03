@@ -32,6 +32,7 @@ namespace InterpolFile
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.navigationPanel = new System.Windows.Forms.Panel();
+            this.divider = new System.Windows.Forms.Panel();
             this.archiveButton = new System.Windows.Forms.Button();
             this.criminalsButton = new System.Windows.Forms.Button();
             this.homeButton = new System.Windows.Forms.Button();
@@ -47,7 +48,6 @@ namespace InterpolFile
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu = new System.Windows.Forms.MenuStrip();
-            this.divider = new System.Windows.Forms.Panel();
             this.navigationPanel.SuspendLayout();
             this.menu.SuspendLayout();
             this.SuspendLayout();
@@ -64,14 +64,24 @@ namespace InterpolFile
             this.navigationPanel.ForeColor = System.Drawing.Color.White;
             this.navigationPanel.Location = new System.Drawing.Point(0, 27);
             this.navigationPanel.Name = "navigationPanel";
-            this.navigationPanel.Size = new System.Drawing.Size(1484, 80);
+            this.navigationPanel.Size = new System.Drawing.Size(1534, 80);
             this.navigationPanel.TabIndex = 3;
+            // 
+            // divider
+            // 
+            this.divider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.divider.BackColor = System.Drawing.Color.MidnightBlue;
+            this.divider.Location = new System.Drawing.Point(0, 0);
+            this.divider.Name = "divider";
+            this.divider.Size = new System.Drawing.Size(1534, 2);
+            this.divider.TabIndex = 0;
             // 
             // archiveButton
             // 
             this.archiveButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.archiveButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.archiveButton.Location = new System.Drawing.Point(856, 13);
+            this.archiveButton.Location = new System.Drawing.Point(881, 13);
             this.archiveButton.Name = "archiveButton";
             this.archiveButton.Size = new System.Drawing.Size(155, 55);
             this.archiveButton.TabIndex = 3;
@@ -83,7 +93,7 @@ namespace InterpolFile
             // 
             this.criminalsButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.criminalsButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.criminalsButton.Location = new System.Drawing.Point(665, 13);
+            this.criminalsButton.Location = new System.Drawing.Point(690, 13);
             this.criminalsButton.Name = "criminalsButton";
             this.criminalsButton.Size = new System.Drawing.Size(155, 55);
             this.criminalsButton.TabIndex = 2;
@@ -95,7 +105,7 @@ namespace InterpolFile
             // 
             this.homeButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.homeButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.homeButton.Location = new System.Drawing.Point(474, 13);
+            this.homeButton.Location = new System.Drawing.Point(499, 13);
             this.homeButton.Name = "homeButton";
             this.homeButton.Size = new System.Drawing.Size(155, 55);
             this.homeButton.TabIndex = 1;
@@ -108,7 +118,7 @@ namespace InterpolFile
             this.containerPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.containerPanel.Location = new System.Drawing.Point(0, 107);
             this.containerPanel.Name = "containerPanel";
-            this.containerPanel.Size = new System.Drawing.Size(1484, 824);
+            this.containerPanel.Size = new System.Drawing.Size(1534, 824);
             this.containerPanel.TabIndex = 4;
             // 
             // fileToolStripMenuItem
@@ -134,7 +144,7 @@ namespace InterpolFile
             this.newToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
             this.newToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.newToolStripMenuItem.Text = "&New";
             // 
             // openToolStripMenuItem
@@ -143,13 +153,13 @@ namespace InterpolFile
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.openToolStripMenuItem.Text = "&Open";
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(160, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -157,24 +167,24 @@ namespace InterpolFile
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.saveToolStripMenuItem.Text = "&Save";
             // 
             // saveAsToolStripMenuItem
             // 
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.saveAsToolStripMenuItem.Text = "Save &As";
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(160, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -192,7 +202,7 @@ namespace InterpolFile
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(128, 22);
             this.aboutToolStripMenuItem.Text = "&About...";
             // 
             // menu
@@ -206,25 +216,15 @@ namespace InterpolFile
             this.menu.Location = new System.Drawing.Point(0, 0);
             this.menu.Name = "menu";
             this.menu.Padding = new System.Windows.Forms.Padding(6, 3, 0, 3);
-            this.menu.Size = new System.Drawing.Size(1484, 27);
+            this.menu.Size = new System.Drawing.Size(1534, 27);
             this.menu.TabIndex = 2;
             this.menu.Text = "menu";
-            // 
-            // divider
-            // 
-            this.divider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.divider.BackColor = System.Drawing.Color.MidnightBlue;
-            this.divider.Location = new System.Drawing.Point(0, 0);
-            this.divider.Name = "divider";
-            this.divider.Size = new System.Drawing.Size(1484, 2);
-            this.divider.TabIndex = 0;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1484, 931);
+            this.ClientSize = new System.Drawing.Size(1534, 931);
             this.Controls.Add(this.containerPanel);
             this.Controls.Add(this.navigationPanel);
             this.Controls.Add(this.menu);

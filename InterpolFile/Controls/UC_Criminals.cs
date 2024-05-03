@@ -9,6 +9,7 @@ using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using InterpolFile.Forms;
 using InterpolFile.Models;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
@@ -52,7 +53,37 @@ namespace InterpolFile.Controls
 
                 criminalsList.Items.Add(item);
             }
+        }
 
+        private void criminalsList_DoubleClick(object sender, EventArgs e)
+        {
+            if (criminalsList.SelectedItems.Count == 0)
+                return;
+
+            int selectedIndex = criminalsList.SelectedItems[0].Index;
+            var selectedCriminal = fileIndex.Criminals[selectedIndex];
+
+            var dialog = new CriminalEditForm(selectedCriminal);
+            if (dialog.ShowDialog() == DialogResult.OK)
+            {
+                UpdateListViewItem(criminalsList.Items[selectedIndex], selectedCriminal);
+            }
+        }
+
+        private void UpdateListViewItem(ListViewItem item, Criminal criminal)
+        {
+            item.SubItems[0].Text = $"{criminal.FirstName} {criminal.LastName}";
+            item.SubItems[1].Text = criminal.HairColor;
+            item.SubItems[2].Text = criminal.EyeColor;
+            item.SubItems[3].Text = criminal.Height.ToString();
+            item.SubItems[4].Text = criminal.Alias;
+            item.SubItems[5].Text = criminal.DistinguishingFeatures;
+            item.SubItems[6].Text = criminal.CriminalProfession;
+            item.SubItems[7].Text = criminal.LastCase;
+            item.SubItems[8].Text = String.Join(", ", criminal.LanguagesKnown);
+            item.SubItems[9].Text = criminal.LastKnownResidence;
+            item.SubItems[10].Text = criminal.DateOfBirth;
+            item.SubItems[11].Text = criminal.BirthPlace;
         }
     }
 }

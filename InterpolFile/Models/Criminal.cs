@@ -40,5 +40,7 @@ namespace InterpolFile.Models
             LanguagesKnown = languagesKnown;
             LastKnownResidence = lastKnownResidence;
         }
+
+        public Criminal() { }
     }
 }

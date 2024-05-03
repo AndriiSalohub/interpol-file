@@ -324,6 +324,11 @@
             // heightUpDown
             // 
             this.heightUpDown.Location = new System.Drawing.Point(608, 52);
+            this.heightUpDown.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.heightUpDown.Name = "heightUpDown";
             this.heightUpDown.Size = new System.Drawing.Size(107, 27);
             this.heightUpDown.TabIndex = 8;
@@ -355,13 +360,16 @@
             this.location,
             this.birthDate,
             this.placeOfBirth});
+            this.criminalsList.FullRowSelect = true;
             this.criminalsList.HideSelection = false;
             this.criminalsList.Location = new System.Drawing.Point(18, 500);
+            this.criminalsList.MultiSelect = false;
             this.criminalsList.Name = "criminalsList";
             this.criminalsList.Size = new System.Drawing.Size(1465, 314);
             this.criminalsList.TabIndex = 33;
             this.criminalsList.UseCompatibleStateImageBehavior = false;
             this.criminalsList.View = System.Windows.Forms.View.Details;
+            this.criminalsList.DoubleClick += new System.EventHandler(this.criminalsList_DoubleClick);
             // 
             // fullName
             // 
