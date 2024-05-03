@@ -15,6 +15,7 @@ namespace InterpolFile
 {
     public partial class MainForm : Form
     {
+        private UserControl currentControl;
         FileIndex fileIndex = new FileIndex();
 
         public MainForm()
@@ -26,9 +27,15 @@ namespace InterpolFile
 
         private void addUserControl(UserControl userControl)
         {
+            if (currentControl != null && userControl.GetType() == currentControl.GetType())
+            {
+                return;
+            }
+
             userControl.Dock = DockStyle.Fill;
             containerPanel.Controls.Clear();
             containerPanel.Controls.Add(userControl);
+            currentControl = userControl;
         }
 
         private void homeButton_Click(object sender, EventArgs e)
@@ -37,16 +44,16 @@ namespace InterpolFile
             addUserControl(home);
         }
 
-        private void archiveButton_Click(object sender, EventArgs e)
-        {
-            UC_Archive archive = new UC_Archive();
-            addUserControl(archive);
-        }
-
         private void criminalsButton_Click(object sender, EventArgs e)
         {
             UC_Criminals criminals = new UC_Criminals(fileIndex);
             addUserControl(criminals);
+        }
+
+        private void archiveButton_Click(object sender, EventArgs e)
+        {
+            UC_Archive archive = new UC_Archive();
+            addUserControl(archive);
         }
 
         private void helpToolStripMenuItem_DropDownOpened(object sender, EventArgs e)
