@@ -23,50 +23,126 @@ namespace InterpolFile.Controls
         {
             InitializeComponent();
             this.fileIndex = fileIndex;
+
+            AttachValidatingHandlers();
         }
 
         private void addCriminalButton_Click(object sender, EventArgs e)
         {
-            fileIndex.AddCriminal(firstNameTextBox.Text, lastNameTextBox.Text,
-                eyesColorTextBox.Text, hairColorTextBox.Text,
-                (int)heightUpDown.Value, birthTextBox.Text, birthPlaceTextBox.Text,
-                aliasTextBox.Text, distinguishingFeaturesTextBox.Text,
-                proffesionTextBox.Text, lastCrimeTextBox.Text,
-                languagesTextBox.Text.Split(',').ToList(), lastKnownPlaceTextBox.Text);
-
-            criminalsList.Items.Clear();
-            foreach (var criminal in fileIndex.Criminals)
+            if (ValidateFields())
             {
-                ListViewItem item = new ListViewItem($"{criminal.FirstName} {criminal.LastName}");
-
-                item.SubItems.Add(criminal.HairColor);
-                item.SubItems.Add(criminal.EyeColor);
-                item.SubItems.Add(criminal.Height.ToString());
-                item.SubItems.Add(criminal.Alias);
-                item.SubItems.Add(criminal.DistinguishingFeatures);
-                item.SubItems.Add(criminal.CriminalProfession);
-                item.SubItems.Add(criminal.LastCase);
-                item.SubItems.Add(String.Join(", ", criminal.LanguagesKnown));  // Пример, если LanguagesKnown - это список
-                item.SubItems.Add(criminal.LastKnownResidence);
-                item.SubItems.Add(criminal.DateOfBirth);
-                item.SubItems.Add(criminal.BirthPlace);
-
-                criminalsList.Items.Add(item);
+                AddCriminalToIndex();
+                PopulateCriminalsListView();
             }
         }
-
         private void criminalsList_DoubleClick(object sender, EventArgs e)
         {
-            if (criminalsList.SelectedItems.Count == 0)
-                return;
-
             int selectedIndex = criminalsList.SelectedItems[0].Index;
             var selectedCriminal = fileIndex.Criminals[selectedIndex];
-
             var dialog = new CriminalEditForm(selectedCriminal);
+
             if (dialog.ShowDialog() == DialogResult.OK)
             {
                 UpdateListViewItem(criminalsList.Items[selectedIndex], selectedCriminal);
+            }
+        }
+
+        private void AttachValidatingHandlers()
+        {
+            var fieldsToValidate = new Dictionary<TextBoxBase, Label>
+            {
+                { firstNameTextBox, firstNameErrorLabel },
+                { lastNameTextBox, lastNameErrorLabel },
+                { hairColorTextBox, hairColorErrorLabel },
+                { eyesColorTextBox, eyesColorErrorLabel },
+                { birthPlaceTextBox, birthPlaceErrorLabel },
+                { aliasTextBox, aliasErrorLabel },
+                { distinguishingFeaturesTextBox, distinguishingFeaturesErrorLabel },
+                { professionTextBox, professionErrorLabel },
+                { lastCrimeTextBox, lastCrimeErrorLabel },
+                { languagesTextBox, languagesErrorLabel },
+                { lastKnownPlaceTextBox, lastPlaceErrorLabel }
+            };
+
+            foreach (var pair in fieldsToValidate)
+            {
+                pair.Key.Validating += (sender, e) => ValidateTextField(pair.Key, pair.Value);
+            }
+        }
+
+        private bool ValidateFields()
+        {
+            bool allFieldsValid = true;
+            var validationFields = GetValidationFields();
+
+            foreach (var kv in validationFields)
+            {
+                if (!ValidateTextField(kv.Key, kv.Value))
+                {
+                    allFieldsValid = false;
+                }
+            }
+
+            return allFieldsValid;
+        }
+
+        private Dictionary<TextBoxBase, Label> GetValidationFields()
+        {
+            return new Dictionary<TextBoxBase, Label>
+            {
+                { firstNameTextBox, firstNameErrorLabel },
+                { lastNameTextBox, lastNameErrorLabel },
+                { hairColorTextBox, hairColorErrorLabel },
+                { eyesColorTextBox, eyesColorErrorLabel },
+                { birthPlaceTextBox, birthPlaceErrorLabel },
+                { aliasTextBox, aliasErrorLabel },
+                { distinguishingFeaturesTextBox, distinguishingFeaturesErrorLabel },
+                { professionTextBox, professionErrorLabel },
+                { lastCrimeTextBox, lastCrimeErrorLabel },
+                { languagesTextBox, languagesErrorLabel },
+                { lastKnownPlaceTextBox, lastPlaceErrorLabel }
+            };
+        }
+
+        private bool ValidateTextField(TextBoxBase textBox, Label errorLabel)
+        {
+            bool isValid = !string.IsNullOrWhiteSpace(textBox.Text);
+            errorLabel.Visible = !isValid;
+            return isValid;
+        }
+
+        private void AddCriminalToIndex()
+        {
+            fileIndex.AddCriminal(
+                firstNameTextBox.Text, lastNameTextBox.Text,
+                eyesColorTextBox.Text, hairColorTextBox.Text,
+                (int)heightUpDown.Value, birthDateTimePicker.Text, birthPlaceTextBox.Text,
+                aliasTextBox.Text, distinguishingFeaturesTextBox.Text,
+                professionTextBox.Text, lastCrimeTextBox.Text,
+                languagesTextBox.Text.Split(',').ToList(), lastKnownPlaceTextBox.Text);
+        }
+
+        private void PopulateCriminalsListView()
+        {
+            criminalsList.Items.Clear();
+            foreach (var criminal in fileIndex.Criminals)
+            {
+                ListViewItem item = new ListViewItem(new string[]
+                {
+                    $"{criminal.FirstName} {criminal.LastName}",
+                    criminal.HairColor,
+                    criminal.EyeColor,
+                    criminal.Height.ToString(),
+                    criminal.Alias,
+                    criminal.DistinguishingFeatures,
+                    criminal.CriminalProfession,
+                    criminal.LastCase,
+                    String.Join(", ", criminal.LanguagesKnown),
+                    criminal.LastKnownResidence,
+                    criminal.DateOfBirth,
+                    criminal.BirthPlace
+                });
+                criminalsList.Items.Add(item);
             }
         }
 

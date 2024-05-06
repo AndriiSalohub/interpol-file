@@ -25,11 +25,12 @@ namespace InterpolFile.Forms
             hairColorTextBox.Text = criminal.HairColor;
             eyesColorTextBox.Text = criminal.EyeColor;
             heightUpDown.Value = criminal.Height;
-            birthTextBox.Text = criminal.DateOfBirth;
+            birthDateTimePicker.Text = criminal.DateOfBirth;
             birthPlaceTextBox.Text = criminal.BirthPlace;
             aliasTextBox.Text = criminal.Alias;
             distinguishingFeaturesTextBox.Text = criminal.DistinguishingFeatures;
             proffesionTextBox.Text = criminal.CriminalProfession;
+            languagesTextBox.Text = String.Join(",", criminal.LanguagesKnown);
             lastCrimeTextBox.Text = criminal.LastCase;
             lastKnownPlaceTextBox.Text = criminal.LastKnownResidence;
         }
@@ -41,13 +42,14 @@ namespace InterpolFile.Forms
             criminal.CriminalProfession = proffesionTextBox.Text;
             criminal.DistinguishingFeatures = distinguishingFeaturesTextBox.Text;
             criminal.Alias = aliasTextBox.Text;
-            criminal.DateOfBirth = birthTextBox.Text;
+            criminal.DateOfBirth = birthDateTimePicker.Text;
             criminal.BirthPlace = birthPlaceTextBox.Text;
             criminal.Height = (int)heightUpDown.Value;
             criminal.EyeColor = eyesColorTextBox.Text;
             criminal.HairColor = hairColorTextBox.Text;
             criminal.LastName = lastNameTextBox.Text;
             criminal.FirstName = firstNameTextBox.Text;
+            criminal.LanguagesKnown = languagesTextBox.Text.Split(',').ToList();
         }
     }
 }
