@@ -81,6 +81,8 @@
             this.location = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.birthDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.placeOfBirth = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.searchButton = new System.Windows.Forms.Button();
             this.criminalFormPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).BeginInit();
             this.SuspendLayout();
@@ -243,10 +245,10 @@
             this.lastCrimeTextBox.Size = new System.Drawing.Size(259, 27);
             this.lastCrimeTextBox.TabIndex = 13;
             // 
-            // proffesionTextBox
+            // professionTextBox
             // 
             this.professionTextBox.Location = new System.Drawing.Point(121, 175);
-            this.professionTextBox.Name = "proffesionTextBox";
+            this.professionTextBox.Name = "professionTextBox";
             this.professionTextBox.Size = new System.Drawing.Size(176, 27);
             this.professionTextBox.TabIndex = 12;
             // 
@@ -395,13 +397,13 @@
             this.eyesColorErrorLabel.Text = "x";
             this.eyesColorErrorLabel.Visible = false;
             // 
-            // proffesionErrorLabel
+            // professionErrorLabel
             // 
             this.professionErrorLabel.AutoSize = true;
             this.professionErrorLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.professionErrorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.professionErrorLabel.Location = new System.Drawing.Point(303, 182);
-            this.professionErrorLabel.Name = "proffesionErrorLabel";
+            this.professionErrorLabel.Name = "professionErrorLabel";
             this.professionErrorLabel.Size = new System.Drawing.Size(14, 16);
             this.professionErrorLabel.TabIndex = 39;
             this.professionErrorLabel.Text = "x";
@@ -530,7 +532,7 @@
             this.placeOfBirth});
             this.criminalsList.FullRowSelect = true;
             this.criminalsList.HideSelection = false;
-            this.criminalsList.Location = new System.Drawing.Point(18, 438);
+            this.criminalsList.Location = new System.Drawing.Point(18, 472);
             this.criminalsList.MultiSelect = false;
             this.criminalsList.Name = "criminalsList";
             this.criminalsList.Size = new System.Drawing.Size(1465, 314);
@@ -606,10 +608,29 @@
             this.placeOfBirth.Text = "Місце народження";
             this.placeOfBirth.Width = 170;
             // 
+            // searchTextBox
+            // 
+            this.searchTextBox.Location = new System.Drawing.Point(547, 427);
+            this.searchTextBox.Name = "searchTextBox";
+            this.searchTextBox.Size = new System.Drawing.Size(311, 27);
+            this.searchTextBox.TabIndex = 34;
+            // 
+            // searchButton
+            // 
+            this.searchButton.Location = new System.Drawing.Point(864, 427);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(89, 27);
+            this.searchButton.TabIndex = 35;
+            this.searchButton.Text = "Пошук";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
+            // 
             // UC_Criminals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.searchButton);
+            this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.criminalsList);
             this.Controls.Add(this.addCriminalButton);
             this.Controls.Add(this.criminalFormPanel);
@@ -681,5 +702,7 @@
         private System.Windows.Forms.Label birthPlaceErrorLabel;
         private System.Windows.Forms.Label lastNameErrorLabel;
         private System.Windows.Forms.DateTimePicker birthDateTimePicker;
+        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Button searchButton;
     }
 }
