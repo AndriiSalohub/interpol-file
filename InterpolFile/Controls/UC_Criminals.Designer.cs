@@ -83,6 +83,8 @@
             this.placeOfBirth = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.searchButton = new System.Windows.Forms.Button();
+            this.sortOptionsComboBox = new System.Windows.Forms.ComboBox();
+            this.sortButton = new System.Windows.Forms.Button();
             this.criminalFormPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).BeginInit();
             this.SuspendLayout();
@@ -610,25 +612,53 @@
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(547, 427);
+            this.searchTextBox.Location = new System.Drawing.Point(369, 429);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(311, 27);
             this.searchTextBox.TabIndex = 34;
             // 
             // searchButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(864, 427);
+            this.searchButton.Location = new System.Drawing.Point(686, 429);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(89, 27);
+            this.searchButton.Size = new System.Drawing.Size(89, 29);
             this.searchButton.TabIndex = 35;
             this.searchButton.Text = "Пошук";
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
+            // sortOptionsComboBox
+            // 
+            this.sortOptionsComboBox.FormattingEnabled = true;
+            this.sortOptionsComboBox.Items.AddRange(new object[] {
+            "Виберіть сортування",
+            "Ім\'я",
+            "Прізвище",
+            "Зріст",
+            "Вік"});
+            this.sortOptionsComboBox.Location = new System.Drawing.Point(787, 429);
+            this.sortOptionsComboBox.Name = "sortOptionsComboBox";
+            this.sortOptionsComboBox.Size = new System.Drawing.Size(222, 29);
+            this.sortOptionsComboBox.TabIndex = 36;
+            this.sortOptionsComboBox.Text = "Виберіть сортування";
+            this.sortOptionsComboBox.SelectedIndexChanged += new System.EventHandler(this.sortOptionsComboBox_SelectedIndexChanged);
+            // 
+            // sortButton
+            // 
+            this.sortButton.Location = new System.Drawing.Point(1015, 429);
+            this.sortButton.Name = "sortButton";
+            this.sortButton.Size = new System.Drawing.Size(116, 29);
+            this.sortButton.TabIndex = 37;
+            this.sortButton.Text = "Сортувати";
+            this.sortButton.UseVisualStyleBackColor = true;
+            this.sortButton.Click += new System.EventHandler(this.sortButton_Click);
+            // 
             // UC_Criminals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.sortButton);
+            this.Controls.Add(this.sortOptionsComboBox);
             this.Controls.Add(this.searchButton);
             this.Controls.Add(this.searchTextBox);
             this.Controls.Add(this.criminalsList);
@@ -704,5 +734,7 @@
         private System.Windows.Forms.DateTimePicker birthDateTimePicker;
         private System.Windows.Forms.TextBox searchTextBox;
         private System.Windows.Forms.Button searchButton;
+        private System.Windows.Forms.ComboBox sortOptionsComboBox;
+        private System.Windows.Forms.Button sortButton;
     }
 }

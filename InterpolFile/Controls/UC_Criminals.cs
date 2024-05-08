@@ -35,10 +35,69 @@ namespace InterpolFile.Controls
                 PopulateCriminalsListView();
             }
         }
+
+        private void AddCriminalToIndex()
+        {
+            fileIndex.AddCriminal(
+                firstNameTextBox.Text, lastNameTextBox.Text,
+                eyesColorTextBox.Text, hairColorTextBox.Text,
+                (int)heightUpDown.Value, birthDateTimePicker.Text, birthPlaceTextBox.Text,
+                aliasTextBox.Text, distinguishingFeaturesTextBox.Text,
+                professionTextBox.Text, lastCrimeTextBox.Text,
+                languagesTextBox.Text.Split(',').ToList(), lastKnownPlaceTextBox.Text);
+        }
+
+        private void PopulateCriminalsListView()
+        {
+            criminalsList.Items.Clear();
+            var list = GetSortedCriminals();
+
+            foreach (var criminal in list)
+            {
+                ListViewItem item = new ListViewItem(new string[]
+                {
+                    $"{criminal.FirstName} {criminal.LastName}",
+                    criminal.HairColor,
+                    criminal.EyeColor,
+                    criminal.Height.ToString(),
+                    criminal.Alias,
+                    criminal.DistinguishingFeatures,
+                    criminal.CriminalProfession,
+                    criminal.LastCase,
+                    String.Join(", ", criminal.LanguagesKnown),
+                    criminal.LastKnownResidence,
+                    criminal.DateOfBirth,
+                    criminal.BirthPlace
+                });
+                criminalsList.Items.Add(item);
+            }
+        }
+
+        private List<Criminal> GetSortedCriminals()
+        {
+            var list = fileIndex.Criminals;
+
+            switch (fileIndex.SortedBy)
+            {
+                case "firstName":
+                    return list.OrderBy(c => c.FirstName).ToList();
+                case "lastName":
+                    return list.OrderBy(c => c.LastName).ToList();
+                case "height":
+                    return list.OrderBy(c => c.Height).ToList();
+                case "dateOfBirth":
+                    return list.OrderBy(c => DateTime.Parse(c.DateOfBirth)).ToList();
+                default:
+                    return list;
+            }
+        }
+
         private void criminalsList_DoubleClick(object sender, EventArgs e)
         {
             int selectedIndex = criminalsList.SelectedItems[0].Index;
-            var selectedCriminal = fileIndex.Criminals[selectedIndex];
+            var list = GetSortedCriminals();
+
+            var selectedCriminal = list[selectedIndex];
             var dialog = new CriminalEditForm(selectedCriminal);
 
             if (dialog.ShowDialog() == DialogResult.OK)
@@ -46,6 +105,23 @@ namespace InterpolFile.Controls
                 UpdateListViewItem(criminalsList.Items[selectedIndex], selectedCriminal);
             }
         }
+
+        private void UpdateListViewItem(ListViewItem item, Criminal criminal)
+        {
+            item.SubItems[0].Text = $"{criminal.FirstName} {criminal.LastName}";
+            item.SubItems[1].Text = criminal.HairColor;
+            item.SubItems[2].Text = criminal.EyeColor;
+            item.SubItems[3].Text = criminal.Height.ToString();
+            item.SubItems[4].Text = criminal.Alias;
+            item.SubItems[5].Text = criminal.DistinguishingFeatures;
+            item.SubItems[6].Text = criminal.CriminalProfession;
+            item.SubItems[7].Text = criminal.LastCase;
+            item.SubItems[8].Text = String.Join(", ", criminal.LanguagesKnown);
+            item.SubItems[9].Text = criminal.LastKnownResidence;
+            item.SubItems[10].Text = criminal.DateOfBirth;
+            item.SubItems[11].Text = criminal.BirthPlace;
+        }
+
 
         private void AttachValidatingHandlers()
         {
@@ -111,57 +187,6 @@ namespace InterpolFile.Controls
             return isValid;
         }
 
-        private void AddCriminalToIndex()
-        {
-            fileIndex.AddCriminal(
-                firstNameTextBox.Text, lastNameTextBox.Text,
-                eyesColorTextBox.Text, hairColorTextBox.Text,
-                (int)heightUpDown.Value, birthDateTimePicker.Text, birthPlaceTextBox.Text,
-                aliasTextBox.Text, distinguishingFeaturesTextBox.Text,
-                professionTextBox.Text, lastCrimeTextBox.Text,
-                languagesTextBox.Text.Split(',').ToList(), lastKnownPlaceTextBox.Text);
-        }
-
-        private void PopulateCriminalsListView()
-        {
-            criminalsList.Items.Clear();
-            foreach (var criminal in fileIndex.Criminals)
-            {
-                ListViewItem item = new ListViewItem(new string[]
-                {
-                    $"{criminal.FirstName} {criminal.LastName}",
-                    criminal.HairColor,
-                    criminal.EyeColor,
-                    criminal.Height.ToString(),
-                    criminal.Alias,
-                    criminal.DistinguishingFeatures,
-                    criminal.CriminalProfession,
-                    criminal.LastCase,
-                    String.Join(", ", criminal.LanguagesKnown),
-                    criminal.LastKnownResidence,
-                    criminal.DateOfBirth,
-                    criminal.BirthPlace
-                });
-                criminalsList.Items.Add(item);
-            }
-        }
-
-        private void UpdateListViewItem(ListViewItem item, Criminal criminal)
-        {
-            item.SubItems[0].Text = $"{criminal.FirstName} {criminal.LastName}";
-            item.SubItems[1].Text = criminal.HairColor;
-            item.SubItems[2].Text = criminal.EyeColor;
-            item.SubItems[3].Text = criminal.Height.ToString();
-            item.SubItems[4].Text = criminal.Alias;
-            item.SubItems[5].Text = criminal.DistinguishingFeatures;
-            item.SubItems[6].Text = criminal.CriminalProfession;
-            item.SubItems[7].Text = criminal.LastCase;
-            item.SubItems[8].Text = String.Join(", ", criminal.LanguagesKnown);
-            item.SubItems[9].Text = criminal.LastKnownResidence;
-            item.SubItems[10].Text = criminal.DateOfBirth;
-            item.SubItems[11].Text = criminal.BirthPlace;
-        }
-
         private void searchButton_Click(object sender, EventArgs e)
         {
             string searchText = searchTextBox.Text.ToLower();
@@ -207,6 +232,35 @@ namespace InterpolFile.Controls
                     }
                 }
             }
+        }
+
+        private void sortOptionsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (sortOptionsComboBox.SelectedItem.ToString())
+            {
+
+                case "Ім'я":
+                    fileIndex.SortedBy = "firstName";
+                    break;
+                case "Прізвище":
+                    fileIndex.SortedBy = "lastName";
+                    break;
+                case "Зріст":
+                    fileIndex.SortedBy = "height";
+                    break;
+                case "Вік":
+                    fileIndex.SortedBy = "dateOfBirth";
+                    break;
+                default:
+                    fileIndex.SortedBy = "";
+                    break;
+
+            }
+        }
+
+        private void sortButton_Click(object sender, EventArgs e)
+        {
+            PopulateCriminalsListView();
         }
     }
 }

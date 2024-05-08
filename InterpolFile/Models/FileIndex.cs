@@ -11,9 +11,12 @@ namespace InterpolFile.Models
         public FileIndex()
         {
             Criminals = new List<Criminal>();
+            SortedBy = "";
         }
 
         public List<Criminal> Criminals { get; set; }
+        public string SortedBy { get; set; }
+
 
         public void AddCriminal(string firstName, string lastName, string hairColor, string eyeColor, int height,
                                string dateOfBirth, string birthPlace, string alias, string distinguishingFeatures,
