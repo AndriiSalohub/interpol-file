@@ -262,5 +262,12 @@ namespace InterpolFile.Controls
         {
             PopulateCriminalsListView();
         }
+
+        public void RefreshData()
+        {
+            criminalsList.Items.Clear();
+
+            PopulateCriminalsListView();
+        }
     }
 }
