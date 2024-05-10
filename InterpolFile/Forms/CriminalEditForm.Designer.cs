@@ -68,6 +68,7 @@
             this.alias = new System.Windows.Forms.Label();
             this.eyesColor = new System.Windows.Forms.Label();
             this.eyesColorTextBox = new System.Windows.Forms.TextBox();
+            this.removeButton = new System.Windows.Forms.Button();
             this.criminalFormPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).BeginInit();
             this.SuspendLayout();
@@ -86,7 +87,7 @@
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(646, 280);
+            this.cancelButton.Location = new System.Drawing.Point(645, 280);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(130, 35);
             this.cancelButton.TabIndex = 2;
@@ -498,11 +499,22 @@
             this.eyesColorTextBox.Size = new System.Drawing.Size(125, 27);
             this.eyesColorTextBox.TabIndex = 7;
             // 
+            // removeButton
+            // 
+            this.removeButton.Location = new System.Drawing.Point(13, 280);
+            this.removeButton.Name = "removeButton";
+            this.removeButton.Size = new System.Drawing.Size(130, 35);
+            this.removeButton.TabIndex = 34;
+            this.removeButton.Text = "Видалити";
+            this.removeButton.UseVisualStyleBackColor = true;
+            this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
+            // 
             // CriminalEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(787, 339);
+            this.Controls.Add(this.removeButton);
             this.Controls.Add(this.criminalFormPanel);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.submitButton);
@@ -559,5 +571,6 @@
         private System.Windows.Forms.Label alias;
         private System.Windows.Forms.Label eyesColor;
         private System.Windows.Forms.TextBox eyesColorTextBox;
+        private System.Windows.Forms.Button removeButton;
     }
 }

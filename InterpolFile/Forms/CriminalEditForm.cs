@@ -14,11 +14,14 @@ namespace InterpolFile.Forms
     public partial class CriminalEditForm : Form
     {
         readonly Criminal criminal = new Criminal();
+        readonly FileIndex fileIndex;
+        public event Action CriminalDeleted;
 
-        public CriminalEditForm(Criminal criminal)
+        public CriminalEditForm(FileIndex fileIndex, Criminal criminal)
         {
             InitializeComponent();
 
+            this.fileIndex = fileIndex;
             this.criminal = criminal;
             PopulateFields();
         }
@@ -105,6 +108,30 @@ namespace InterpolFile.Forms
             criminal.LastCase = lastCrimeTextBox.Text;
             criminal.LanguagesKnown = languagesTextBox.Text.Split(',').ToList();
             criminal.LastKnownResidence = lastKnownPlaceTextBox.Text;
+        }
+
+        private void removeButton_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Ви впевнені, що хочите видалити цього злочинця?",
+                                               "Confirm Removal",
+                                               MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                if (fileIndex.Criminals.Contains(criminal))
+                {
+                    fileIndex.DeleteCriminal(criminal.FirstName, criminal.LastName);
+                    MessageBox.Show("Злочинця було успішно видалено.", "Removal Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                    CriminalDeleted?.Invoke();
+
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Criminal not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }

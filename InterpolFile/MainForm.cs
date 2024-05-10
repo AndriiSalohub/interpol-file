@@ -108,11 +108,11 @@ namespace InterpolFile
             try
             {
                 fileIndex.SaveCriminals(PATH_TO_DATA);
-                MessageBox.Show("Data saved successfully!", "Save Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Данні було успішно збережено!", "Save Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to save data. Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Помилка збереження данних. Помилка: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -121,16 +121,16 @@ namespace InterpolFile
             try
             {
                 fileIndex.LoadCriminals(PATH_TO_DATA);
-                MessageBox.Show("Data loaded successfully!", "Load Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Дані успішно завантажено!", "Load Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 RefreshCriminalsControl();
             }
             catch (FileNotFoundException)
             {
-                MessageBox.Show("The data file does not exist.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Файл даних не існує.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to load data. Error: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"Не вдалося завантажити дані. Помилка: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 

@@ -98,14 +98,16 @@ namespace InterpolFile.Controls
             var list = GetSortedCriminals();
 
             var selectedCriminal = list[selectedIndex];
-            var dialog = new CriminalEditForm(selectedCriminal);
+            var dialog = new CriminalEditForm(fileIndex, selectedCriminal);
+            dialog.CriminalDeleted += RefreshData;
 
             if (dialog.ShowDialog() == DialogResult.OK)
             {
-                UpdateListViewItem(criminalsList.Items[selectedIndex], selectedCriminal);
+                RefreshData();
             }
-        }
 
+            dialog.CriminalDeleted -= RefreshData;
+        }
         private void UpdateListViewItem(ListViewItem item, Criminal criminal)
         {
             item.SubItems[0].Text = $"{criminal.FirstName} {criminal.LastName}";

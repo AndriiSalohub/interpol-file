@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace InterpolFile.Models
 {
@@ -27,6 +28,16 @@ namespace InterpolFile.Models
             Criminals.Add(new Criminal(firstName, lastName, hairColor, eyeColor, height,
                         dateOfBirth, birthPlace, alias, distinguishingFeatures,
                         criminalProfession, lastCase, languagesKnown, lastKnownResidence));
+        }
+
+        public void DeleteCriminal(string firstName, string lastName)
+        {
+            Criminal criminalToRemove = Criminals.FirstOrDefault(c => c.FirstName == firstName && c.LastName == lastName);
+
+            if (criminalToRemove != null)
+            {
+                Criminals.Remove(criminalToRemove);
+            }
         }
 
         public void SaveCriminals(string path)
