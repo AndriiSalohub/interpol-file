@@ -69,6 +69,7 @@
             this.eyesColor = new System.Windows.Forms.Label();
             this.eyesColorTextBox = new System.Windows.Forms.TextBox();
             this.removeButton = new System.Windows.Forms.Button();
+            this.archiveButton = new System.Windows.Forms.Button();
             this.criminalFormPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).BeginInit();
             this.SuspendLayout();
@@ -509,11 +510,22 @@
             this.removeButton.UseVisualStyleBackColor = true;
             this.removeButton.Click += new System.EventHandler(this.removeButton_Click);
             // 
+            // archiveButton
+            // 
+            this.archiveButton.Location = new System.Drawing.Point(150, 280);
+            this.archiveButton.Name = "archiveButton";
+            this.archiveButton.Size = new System.Drawing.Size(147, 34);
+            this.archiveButton.TabIndex = 35;
+            this.archiveButton.Text = "Додати в архів";
+            this.archiveButton.UseVisualStyleBackColor = true;
+            this.archiveButton.Click += new System.EventHandler(this.archiveButton_Click);
+            // 
             // CriminalEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(787, 339);
+            this.Controls.Add(this.archiveButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.criminalFormPanel);
             this.Controls.Add(this.cancelButton);
@@ -572,5 +584,6 @@
         private System.Windows.Forms.Label eyesColor;
         private System.Windows.Forms.TextBox eyesColorTextBox;
         private System.Windows.Forms.Button removeButton;
+        private System.Windows.Forms.Button archiveButton;
     }
 }

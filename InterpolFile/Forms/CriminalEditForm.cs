@@ -15,14 +15,16 @@ namespace InterpolFile.Forms
     {
         readonly Criminal criminal = new Criminal();
         readonly FileIndex fileIndex;
+        readonly Archive archive;
         public event Action CriminalDeleted;
 
-        public CriminalEditForm(FileIndex fileIndex, Criminal criminal)
+        public CriminalEditForm(FileIndex fileIndex, Criminal criminal, Archive archive)
         {
             InitializeComponent();
 
             this.fileIndex = fileIndex;
             this.criminal = criminal;
+            this.archive = archive;
             PopulateFields();
         }
 
@@ -129,8 +131,24 @@ namespace InterpolFile.Forms
                 }
                 else
                 {
-                    MessageBox.Show("Criminal not found.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Злочинець не знайден.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
+            }
+        }
+
+        private void archiveButton_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Ви впевнені, що хочете перенести цього злочинця в архів?", "Confirm Archive", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                archive.AddCriminalToArchive(criminal);
+                fileIndex.DeleteCriminal(criminal.FirstName, criminal.LastName);
+                MessageBox.Show("Злочинець успішно був перенесений в архів.", "Archive Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                CriminalDeleted?.Invoke();
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             }
         }
     }

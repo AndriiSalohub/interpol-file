@@ -18,6 +18,7 @@ namespace InterpolFile
     {
         private UserControl currentControl;
         FileIndex fileIndex = new FileIndex();
+        Archive archiveList = new Archive();
 
         public MainForm()
         {
@@ -37,6 +38,15 @@ namespace InterpolFile
             containerPanel.Controls.Clear();
             containerPanel.Controls.Add(userControl);
             currentControl = userControl;
+
+            if (currentControl is UC_Criminals)
+            {
+                ((UC_Criminals)currentControl).SetArchive(archiveList); // Передаем архив в UC_Criminals
+            }
+            else if (currentControl is UC_Archive)
+            {
+                ((UC_Archive)currentControl).SetArchive(archiveList); // Передаем архив в UC_Archive
+            }
         }
 
         private void homeButton_Click(object sender, EventArgs e)
@@ -47,13 +57,13 @@ namespace InterpolFile
 
         private void criminalsButton_Click(object sender, EventArgs e)
         {
-            UC_Criminals criminals = new UC_Criminals(fileIndex);
+            UC_Criminals criminals = new UC_Criminals(fileIndex, archiveList);
             addUserControl(criminals);
         }
 
         private void archiveButton_Click(object sender, EventArgs e)
         {
-            UC_Archive archive = new UC_Archive();
+            UC_Archive archive = new UC_Archive(archiveList);
             addUserControl(archive);
         }
 

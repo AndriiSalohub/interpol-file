@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
+            this.criminalListTitle = new System.Windows.Forms.Label();
             this.firstNameTextBox = new System.Windows.Forms.TextBox();
             this.firstName = new System.Windows.Forms.Label();
             this.lastNameTextBox = new System.Windows.Forms.TextBox();
@@ -89,16 +89,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).BeginInit();
             this.SuspendLayout();
             // 
-            // label1
+            // criminalListTitle
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(637, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(226, 28);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Список Злочинців";
+            this.criminalListTitle.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.criminalListTitle.AutoSize = true;
+            this.criminalListTitle.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.criminalListTitle.Location = new System.Drawing.Point(637, 50);
+            this.criminalListTitle.Name = "criminalListTitle";
+            this.criminalListTitle.Size = new System.Drawing.Size(226, 28);
+            this.criminalListTitle.TabIndex = 1;
+            this.criminalListTitle.Text = "Список Злочинців";
             // 
             // firstNameTextBox
             // 
@@ -511,7 +511,7 @@
             this.addCriminalButton.Location = new System.Drawing.Point(650, 367);
             this.addCriminalButton.Name = "addCriminalButton";
             this.addCriminalButton.Size = new System.Drawing.Size(176, 45);
-            this.addCriminalButton.TabIndex = 16;
+            this.addCriminalButton.TabIndex = 100;
             this.addCriminalButton.Text = "Додати Злочинця";
             this.addCriminalButton.UseVisualStyleBackColor = true;
             this.addCriminalButton.Click += new System.EventHandler(this.addCriminalButton_Click);
@@ -538,7 +538,7 @@
             this.criminalsList.MultiSelect = false;
             this.criminalsList.Name = "criminalsList";
             this.criminalsList.Size = new System.Drawing.Size(1465, 314);
-            this.criminalsList.TabIndex = 33;
+            this.criminalsList.TabIndex = 105;
             this.criminalsList.UseCompatibleStateImageBehavior = false;
             this.criminalsList.View = System.Windows.Forms.View.Details;
             this.criminalsList.DoubleClick += new System.EventHandler(this.criminalsList_DoubleClick);
@@ -615,14 +615,14 @@
             this.searchTextBox.Location = new System.Drawing.Point(369, 429);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(311, 27);
-            this.searchTextBox.TabIndex = 34;
+            this.searchTextBox.TabIndex = 101;
             // 
             // searchButton
             // 
             this.searchButton.Location = new System.Drawing.Point(686, 429);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(89, 29);
-            this.searchButton.TabIndex = 35;
+            this.searchButton.TabIndex = 102;
             this.searchButton.Text = "Пошук";
             this.searchButton.UseVisualStyleBackColor = true;
             this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
@@ -639,7 +639,7 @@
             this.sortOptionsComboBox.Location = new System.Drawing.Point(787, 429);
             this.sortOptionsComboBox.Name = "sortOptionsComboBox";
             this.sortOptionsComboBox.Size = new System.Drawing.Size(222, 29);
-            this.sortOptionsComboBox.TabIndex = 36;
+            this.sortOptionsComboBox.TabIndex = 103;
             this.sortOptionsComboBox.Text = "Виберіть сортування";
             this.sortOptionsComboBox.SelectedIndexChanged += new System.EventHandler(this.sortOptionsComboBox_SelectedIndexChanged);
             // 
@@ -648,7 +648,7 @@
             this.sortButton.Location = new System.Drawing.Point(1015, 429);
             this.sortButton.Name = "sortButton";
             this.sortButton.Size = new System.Drawing.Size(116, 29);
-            this.sortButton.TabIndex = 37;
+            this.sortButton.TabIndex = 104;
             this.sortButton.Text = "Сортувати";
             this.sortButton.UseVisualStyleBackColor = true;
             this.sortButton.Click += new System.EventHandler(this.sortButton_Click);
@@ -664,7 +664,7 @@
             this.Controls.Add(this.criminalsList);
             this.Controls.Add(this.addCriminalButton);
             this.Controls.Add(this.criminalFormPanel);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.criminalListTitle);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "UC_Criminals";
@@ -679,7 +679,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label criminalListTitle;
         private System.Windows.Forms.TextBox firstNameTextBox;
         private System.Windows.Forms.Label firstName;
         private System.Windows.Forms.TextBox lastNameTextBox;

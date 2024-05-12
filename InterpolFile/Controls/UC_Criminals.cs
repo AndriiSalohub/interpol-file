@@ -18,13 +18,20 @@ namespace InterpolFile.Controls
     public partial class UC_Criminals : UserControl
     {
         private FileIndex fileIndex;
+        private Archive archive;
 
-        public UC_Criminals(FileIndex fileIndex)
+        public UC_Criminals(FileIndex fileIndex, Archive archive)
         {
             InitializeComponent();
             this.fileIndex = fileIndex;
+            this.archive = archive;
 
             AttachValidatingHandlers();
+        }
+
+        public void SetArchive(Archive archive)
+        {
+            this.archive = archive;
         }
 
         private void addCriminalButton_Click(object sender, EventArgs e)
@@ -98,7 +105,7 @@ namespace InterpolFile.Controls
             var list = GetSortedCriminals();
 
             var selectedCriminal = list[selectedIndex];
-            var dialog = new CriminalEditForm(fileIndex, selectedCriminal);
+            var dialog = new CriminalEditForm(fileIndex, selectedCriminal, archive);
             dialog.CriminalDeleted += RefreshData;
 
             if (dialog.ShowDialog() == DialogResult.OK)
