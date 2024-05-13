@@ -70,6 +70,7 @@
             this.eyesColorTextBox = new System.Windows.Forms.TextBox();
             this.removeButton = new System.Windows.Forms.Button();
             this.archiveButton = new System.Windows.Forms.Button();
+            this.backFromArchiveButton = new System.Windows.Forms.Button();
             this.criminalFormPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).BeginInit();
             this.SuspendLayout();
@@ -520,11 +521,23 @@
             this.archiveButton.UseVisualStyleBackColor = true;
             this.archiveButton.Click += new System.EventHandler(this.archiveButton_Click);
             // 
+            // backFromArchiveButton
+            // 
+            this.backFromArchiveButton.Location = new System.Drawing.Point(151, 280);
+            this.backFromArchiveButton.Name = "backFromArchiveButton";
+            this.backFromArchiveButton.Size = new System.Drawing.Size(183, 35);
+            this.backFromArchiveButton.TabIndex = 36;
+            this.backFromArchiveButton.Text = "Повернути з архіву";
+            this.backFromArchiveButton.UseVisualStyleBackColor = true;
+            this.backFromArchiveButton.Visible = false;
+            this.backFromArchiveButton.Click += new System.EventHandler(this.backFromArchiveButton_Click);
+            // 
             // CriminalEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(787, 339);
+            this.Controls.Add(this.backFromArchiveButton);
             this.Controls.Add(this.archiveButton);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.criminalFormPanel);
@@ -585,5 +598,6 @@
         private System.Windows.Forms.TextBox eyesColorTextBox;
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button archiveButton;
+        private System.Windows.Forms.Button backFromArchiveButton;
     }
 }

@@ -8,11 +8,13 @@ namespace InterpolFile.Controls
     public partial class UC_Archive : UserControl
     {
         private Archive archive;
+        private FileIndex fileIndex;
 
-        public UC_Archive(Archive archive)
+        public UC_Archive(Archive archive, FileIndex fileIndex)
         {
             InitializeComponent();
             this.archive = archive;
+            this.fileIndex = fileIndex;
 
             PopulateArchiveListView();
         }
@@ -56,7 +58,7 @@ namespace InterpolFile.Controls
                 var list = archive.ArchiveList;
 
                 var selectedCriminal = list[selectedIndex];
-                var dialog = new CriminalEditForm(selectedCriminal, archive);
+                var dialog = new CriminalEditForm(selectedCriminal, archive, fileIndex);
                 dialog.CriminalDeleted += RefreshArchive;
 
                 if (dialog.ShowDialog() == DialogResult.OK)

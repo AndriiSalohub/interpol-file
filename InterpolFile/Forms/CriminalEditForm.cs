@@ -27,17 +27,21 @@ namespace InterpolFile.Forms
             this.criminal = criminal;
             this.archive = archive;
             PopulateFields();
+            archiveButton.Visible = true;
+            backFromArchiveButton.Visible = false;
             isFromArchive = false;
         }
 
-        public CriminalEditForm(Criminal criminal, Archive archive)
+        public CriminalEditForm(Criminal criminal, Archive archive, FileIndex fileIndex)
         {
             InitializeComponent();
 
             this.archive = archive;
+            this.fileIndex = fileIndex;
             this.criminal = criminal;
             PopulateFields();
             archiveButton.Visible = false;
+            backFromArchiveButton.Visible = true;
             isFromArchive = true;
         }
 
@@ -176,6 +180,22 @@ namespace InterpolFile.Forms
                 archive.AddCriminalToArchive(criminal);
                 fileIndex.DeleteCriminal(criminal.FirstName, criminal.LastName);
                 MessageBox.Show("Злочинець успішно був перенесений в архів.", "Archive Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                CriminalDeleted?.Invoke();
+
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+        }
+
+        private void backFromArchiveButton_Click(object sender, EventArgs e)
+        {
+            var confirmResult = MessageBox.Show("Ви впевнені, що хочете повернути цього злочинця з архіву?", "Confirm Restoration", MessageBoxButtons.YesNo);
+            if (confirmResult == DialogResult.Yes)
+            {
+                archive.DeleteCriminalFromArchive(criminal.FirstName, criminal.LastName);
+                fileIndex.AddCriminal(criminal);
+                MessageBox.Show("Злочинець успішно повернутий з архіву.", "Restoration Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 CriminalDeleted?.Invoke();
 

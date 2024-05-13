@@ -27,6 +27,7 @@ namespace InterpolFile.Controls
             this.archive = archive;
 
             AttachValidatingHandlers();
+            PopulateCriminalsListView();
         }
 
         public void SetArchive(Archive archive)

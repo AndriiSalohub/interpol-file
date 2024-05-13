@@ -30,6 +30,11 @@ namespace InterpolFile.Models
                         criminalProfession, lastCase, languagesKnown, lastKnownResidence));
         }
 
+        public void AddCriminal(Criminal criminal)
+        {
+            Criminals.Add(criminal);
+        }
+
         public void DeleteCriminal(string firstName, string lastName)
         {
             Criminal criminalToRemove = Criminals.FirstOrDefault(c => c.FirstName == firstName && c.LastName == lastName);
