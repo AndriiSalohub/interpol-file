@@ -22,5 +22,16 @@ namespace InterpolFile.Models
         {
             ArchiveList.Add(criminal);
         }
+
+        public void DeleteCriminalFromArchive(string firstName, string lastName)
+        {
+            Criminal criminalToRemove = ArchiveList.FirstOrDefault(c => c.FirstName == firstName && c.LastName == lastName);
+
+            if (criminalToRemove != null)
+            {
+                ArchiveList.Remove(criminalToRemove);
+            }
+        }
+
     }
 }

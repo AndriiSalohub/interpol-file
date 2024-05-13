@@ -115,22 +115,6 @@ namespace InterpolFile.Controls
 
             dialog.CriminalDeleted -= RefreshData;
         }
-        private void UpdateListViewItem(ListViewItem item, Criminal criminal)
-        {
-            item.SubItems[0].Text = $"{criminal.FirstName} {criminal.LastName}";
-            item.SubItems[1].Text = criminal.HairColor;
-            item.SubItems[2].Text = criminal.EyeColor;
-            item.SubItems[3].Text = criminal.Height.ToString();
-            item.SubItems[4].Text = criminal.Alias;
-            item.SubItems[5].Text = criminal.DistinguishingFeatures;
-            item.SubItems[6].Text = criminal.CriminalProfession;
-            item.SubItems[7].Text = criminal.LastCase;
-            item.SubItems[8].Text = String.Join(", ", criminal.LanguagesKnown);
-            item.SubItems[9].Text = criminal.LastKnownResidence;
-            item.SubItems[10].Text = criminal.DateOfBirth;
-            item.SubItems[11].Text = criminal.BirthPlace;
-        }
-
 
         private void AttachValidatingHandlers()
         {

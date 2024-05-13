@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using InterpolFile.Forms;
 using InterpolFile.Models;
 
 namespace InterpolFile.Controls
@@ -46,6 +47,27 @@ namespace InterpolFile.Controls
                 archiveList.Items.Add(item);
             }
         }
+
+        private void archiveList_DoubleClick(object sender, EventArgs e)
+        {
+            if (archiveList.SelectedItems.Count > 0)
+            {
+                int selectedIndex = archiveList.SelectedItems[0].Index;
+                var list = archive.ArchiveList;
+
+                var selectedCriminal = list[selectedIndex];
+                var dialog = new CriminalEditForm(selectedCriminal, archive);
+                dialog.CriminalDeleted += RefreshArchive;
+
+                if (dialog.ShowDialog() == DialogResult.OK)
+                {
+                    RefreshArchive();
+                }
+
+                dialog.CriminalDeleted -= RefreshArchive;
+            }
+        }
+
 
         public void RefreshArchive()
         {

@@ -41,11 +41,11 @@ namespace InterpolFile
 
             if (currentControl is UC_Criminals)
             {
-                ((UC_Criminals)currentControl).SetArchive(archiveList); // Передаем архив в UC_Criminals
+                ((UC_Criminals)currentControl).SetArchive(archiveList);
             }
             else if (currentControl is UC_Archive)
             {
-                ((UC_Archive)currentControl).SetArchive(archiveList); // Передаем архив в UC_Archive
+                ((UC_Archive)currentControl).SetArchive(archiveList);
             }
         }
 

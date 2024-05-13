@@ -17,6 +17,7 @@ namespace InterpolFile.Forms
         readonly FileIndex fileIndex;
         readonly Archive archive;
         public event Action CriminalDeleted;
+        public bool isFromArchive = false;
 
         public CriminalEditForm(FileIndex fileIndex, Criminal criminal, Archive archive)
         {
@@ -26,6 +27,18 @@ namespace InterpolFile.Forms
             this.criminal = criminal;
             this.archive = archive;
             PopulateFields();
+            isFromArchive = false;
+        }
+
+        public CriminalEditForm(Criminal criminal, Archive archive)
+        {
+            InitializeComponent();
+
+            this.archive = archive;
+            this.criminal = criminal;
+            PopulateFields();
+            archiveButton.Visible = false;
+            isFromArchive = true;
         }
 
         private void PopulateFields()
@@ -114,24 +127,43 @@ namespace InterpolFile.Forms
 
         private void removeButton_Click(object sender, EventArgs e)
         {
-            var confirmResult = MessageBox.Show("Ви впевнені, що хочите видалити цього злочинця?",
-                                               "Confirm Removal",
-                                               MessageBoxButtons.YesNo);
-            if (confirmResult == DialogResult.Yes)
+            if (isFromArchive)
             {
-                if (fileIndex.Criminals.Contains(criminal))
+                var confirmResult = MessageBox.Show("Ви впевнені, що хочете видалити цього злочинця з архіву?",
+                                                   "Confirm Removal",
+                                                   MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
                 {
-                    fileIndex.DeleteCriminal(criminal.FirstName, criminal.LastName);
-                    MessageBox.Show("Злочинця було успішно видалено.", "Removal Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    archive.DeleteCriminalFromArchive(criminal.FirstName, criminal.LastName);
+                    MessageBox.Show("Злочинця було успішно видалено з архіву.", "Removal Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     CriminalDeleted?.Invoke();
 
                     this.DialogResult = DialogResult.OK;
                     this.Close();
                 }
-                else
+            }
+            else
+            {
+                var confirmResult = MessageBox.Show("Ви впевнені, що хочете видалити цього злочинця?",
+                                                   "Confirm Removal",
+                                                   MessageBoxButtons.YesNo);
+                if (confirmResult == DialogResult.Yes)
                 {
-                    MessageBox.Show("Злочинець не знайден.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (fileIndex.Criminals.Contains(criminal))
+                    {
+                        fileIndex.DeleteCriminal(criminal.FirstName, criminal.LastName);
+                        MessageBox.Show("Злочинця було успішно видалено.", "Removal Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                        CriminalDeleted?.Invoke();
+
+                        this.DialogResult = DialogResult.OK;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Злочинець не знайден.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
             }
         }

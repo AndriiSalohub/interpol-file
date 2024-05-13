@@ -67,13 +67,14 @@
             this.archiveList.FullRowSelect = true;
             this.archiveList.HideSelection = false;
             this.archiveList.Location = new System.Drawing.Point(18, 192);
-            this.archiveList.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.archiveList.Margin = new System.Windows.Forms.Padding(2);
             this.archiveList.MultiSelect = false;
             this.archiveList.Name = "archiveList";
             this.archiveList.Size = new System.Drawing.Size(1465, 545);
             this.archiveList.TabIndex = 106;
             this.archiveList.UseCompatibleStateImageBehavior = false;
             this.archiveList.View = System.Windows.Forms.View.Details;
+            this.archiveList.DoubleClick += new System.EventHandler(this.archiveList_DoubleClick);
             // 
             // fullName
             // 
@@ -157,7 +158,7 @@
             // sortButton
             // 
             this.sortButton.Location = new System.Drawing.Point(990, 129);
-            this.sortButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sortButton.Margin = new System.Windows.Forms.Padding(2);
             this.sortButton.Name = "sortButton";
             this.sortButton.Size = new System.Drawing.Size(106, 27);
             this.sortButton.TabIndex = 111;
@@ -174,7 +175,7 @@
             "Зріст",
             "Вік"});
             this.sortOptionsComboBox.Location = new System.Drawing.Point(784, 129);
-            this.sortOptionsComboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.sortOptionsComboBox.Margin = new System.Windows.Forms.Padding(2);
             this.sortOptionsComboBox.Name = "sortOptionsComboBox";
             this.sortOptionsComboBox.Size = new System.Drawing.Size(202, 29);
             this.sortOptionsComboBox.TabIndex = 110;
@@ -183,7 +184,7 @@
             // searchButton
             // 
             this.searchButton.Location = new System.Drawing.Point(691, 129);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchButton.Margin = new System.Windows.Forms.Padding(2);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(81, 27);
             this.searchButton.TabIndex = 109;
@@ -193,7 +194,7 @@
             // searchTextBox
             // 
             this.searchTextBox.Location = new System.Drawing.Point(404, 129);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.searchTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(283, 27);
             this.searchTextBox.TabIndex = 108;
