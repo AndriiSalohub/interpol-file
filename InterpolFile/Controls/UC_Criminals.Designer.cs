@@ -542,6 +542,7 @@
             this.criminalsList.UseCompatibleStateImageBehavior = false;
             this.criminalsList.View = System.Windows.Forms.View.Details;
             this.criminalsList.DoubleClick += new System.EventHandler(this.criminalsList_DoubleClick);
+            this.criminalsList.KeyUp += new System.Windows.Forms.KeyEventHandler(this.criminalsList_KeyUp);
             // 
             // fullName
             // 

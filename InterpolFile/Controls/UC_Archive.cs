@@ -52,28 +52,38 @@ namespace InterpolFile.Controls
 
         private void archiveList_DoubleClick(object sender, EventArgs e)
         {
-            if (archiveList.SelectedItems.Count > 0)
+            OpenSelectedCriminalEditForm();
+        }
+
+        private void OpenSelectedCriminalEditForm()
+        {
+            int selectedIndex = archiveList.SelectedItems[0].Index;
+            var list = archive.Criminals;
+
+            var selectedCriminal = list[selectedIndex];
+            var dialog = new CriminalEditForm(fileIndex, selectedCriminal, archive);
+            dialog.CriminalDeleted += RefreshArchive;
+
+            if (dialog.ShowDialog() == DialogResult.OK)
             {
-                int selectedIndex = archiveList.SelectedItems[0].Index;
-                var list = archive.Criminals;
-
-                var selectedCriminal = list[selectedIndex];
-                var dialog = new CriminalEditForm(selectedCriminal, archive, fileIndex);
-                dialog.CriminalDeleted += RefreshArchive;
-
-                if (dialog.ShowDialog() == DialogResult.OK)
-                {
-                    RefreshArchive();
-                }
-
-                dialog.CriminalDeleted -= RefreshArchive;
+                RefreshArchive();
             }
+
+            dialog.CriminalDeleted -= RefreshArchive;
         }
 
 
         public void RefreshArchive()
         {
             PopulateArchiveListView();
+        }
+
+        private void archiveList_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                OpenSelectedCriminalEditForm();
+            }
         }
     }
 }

@@ -102,6 +102,11 @@ namespace InterpolFile.Controls
 
         private void criminalsList_DoubleClick(object sender, EventArgs e)
         {
+            OpenSelectedCriminalEditForm();
+        }
+
+        private void OpenSelectedCriminalEditForm()
+        {
             int selectedIndex = criminalsList.SelectedItems[0].Index;
             var list = GetSortedCriminals();
 
@@ -116,6 +121,7 @@ namespace InterpolFile.Controls
 
             dialog.CriminalDeleted -= RefreshData;
         }
+
 
         private void AttachValidatingHandlers()
         {
@@ -262,6 +268,14 @@ namespace InterpolFile.Controls
             criminalsList.Items.Clear();
 
             PopulateCriminalsListView();
+        }
+
+        private void criminalsList_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Space)
+            {
+                OpenSelectedCriminalEditForm();
+            }
         }
     }
 }

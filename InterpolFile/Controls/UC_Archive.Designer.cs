@@ -75,6 +75,7 @@
             this.archiveList.UseCompatibleStateImageBehavior = false;
             this.archiveList.View = System.Windows.Forms.View.Details;
             this.archiveList.DoubleClick += new System.EventHandler(this.archiveList_DoubleClick);
+            this.archiveList.KeyUp += new System.Windows.Forms.KeyEventHandler(this.archiveList_KeyUp);
             // 
             // fullName
             // 
@@ -160,7 +161,7 @@
             this.sortButton.Location = new System.Drawing.Point(990, 129);
             this.sortButton.Margin = new System.Windows.Forms.Padding(2);
             this.sortButton.Name = "sortButton";
-            this.sortButton.Size = new System.Drawing.Size(106, 27);
+            this.sortButton.Size = new System.Drawing.Size(106, 29);
             this.sortButton.TabIndex = 111;
             this.sortButton.Text = "Сортувати";
             this.sortButton.UseVisualStyleBackColor = true;
@@ -186,7 +187,7 @@
             this.searchButton.Location = new System.Drawing.Point(691, 129);
             this.searchButton.Margin = new System.Windows.Forms.Padding(2);
             this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(81, 27);
+            this.searchButton.Size = new System.Drawing.Size(81, 29);
             this.searchButton.TabIndex = 109;
             this.searchButton.Text = "Пошук";
             this.searchButton.UseVisualStyleBackColor = true;
