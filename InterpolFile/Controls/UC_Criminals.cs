@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using InterpolFile.Forms;
 using InterpolFile.Models;
+using InterpolFile.Utilities;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace InterpolFile.Controls
@@ -55,73 +56,21 @@ namespace InterpolFile.Controls
                 languagesTextBox.Text.Split(',').ToList(), lastKnownPlaceTextBox.Text);
         }
 
-        private void PopulateCriminalsListView()
+        public void PopulateCriminalsListView()
         {
             criminalsList.Items.Clear();
-            var list = GetSortedCriminals();
+            var list = CriminalUtils.GetSortedCriminals(fileIndex);
 
             foreach (var criminal in list)
             {
-                ListViewItem item = new ListViewItem(new string[]
-                {
-                    $"{criminal.FirstName} {criminal.LastName}",
-                    criminal.HairColor,
-                    criminal.EyeColor,
-                    criminal.Height.ToString(),
-                    criminal.Alias,
-                    criminal.DistinguishingFeatures,
-                    criminal.CriminalProfession,
-                    criminal.LastCase,
-                    String.Join(", ", criminal.LanguagesKnown),
-                    criminal.LastKnownResidence,
-                    criminal.DateOfBirth,
-                    criminal.BirthPlace
-                });
-                criminalsList.Items.Add(item);
-            }
-        }
-
-        private List<Criminal> GetSortedCriminals()
-        {
-            var list = fileIndex.Criminals;
-
-            switch (fileIndex.SortedBy)
-            {
-                case "firstName":
-                    return list.OrderBy(c => c.FirstName).ToList();
-                case "lastName":
-                    return list.OrderBy(c => c.LastName).ToList();
-                case "height":
-                    return list.OrderBy(c => c.Height).ToList();
-                case "dateOfBirth":
-                    return list.OrderBy(c => DateTime.Parse(c.DateOfBirth)).ToList();
-                default:
-                    return list;
+                criminalsList.Items.Add(CriminalUtils.CreateCriminalListViewItem(criminal));
             }
         }
 
         private void criminalsList_DoubleClick(object sender, EventArgs e)
         {
-            OpenSelectedCriminalEditForm();
+            CriminalUtils.OpenSelectedCriminalEditForm(this, fileIndex, archive, criminalsList);
         }
-
-        private void OpenSelectedCriminalEditForm()
-        {
-            int selectedIndex = criminalsList.SelectedItems[0].Index;
-            var list = GetSortedCriminals();
-
-            var selectedCriminal = list[selectedIndex];
-            var dialog = new CriminalEditForm(fileIndex, selectedCriminal, archive);
-            dialog.CriminalDeleted += RefreshData;
-
-            if (dialog.ShowDialog() == DialogResult.OK)
-            {
-                RefreshData();
-            }
-
-            dialog.CriminalDeleted -= RefreshData;
-        }
-
 
         private void AttachValidatingHandlers()
         {
@@ -263,18 +212,11 @@ namespace InterpolFile.Controls
             PopulateCriminalsListView();
         }
 
-        public void RefreshData()
-        {
-            criminalsList.Items.Clear();
-
-            PopulateCriminalsListView();
-        }
-
         private void criminalsList_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Space)
             {
-                OpenSelectedCriminalEditForm();
+                CriminalUtils.OpenSelectedCriminalEditForm(this, fileIndex, archive, criminalsList);
             }
         }
     }

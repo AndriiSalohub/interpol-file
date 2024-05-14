@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using System.Xml.Serialization;
 using InterpolFile.Controls;
 using InterpolFile.Models;
+using InterpolFile.Utilities;
 
 namespace InterpolFile
 {
@@ -151,7 +152,12 @@ namespace InterpolFile
         {
             if (currentControl is UC_Criminals criminalsControl)
             {
-                criminalsControl.RefreshData();
+                CriminalUtils.RefreshData(criminalsControl);
+            }
+
+            if (currentControl is UC_Archive archiveControl)
+            {
+                CriminalUtils.RefreshData(archiveControl);
             }
         }
     }
