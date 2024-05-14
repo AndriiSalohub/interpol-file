@@ -111,13 +111,15 @@ namespace InterpolFile
             Close();
         }
 
-        const string PATH_TO_DATA = ".\\criminals.txt";
+        const string PATH_TO_LIST_DATA = ".\\criminals.txt";
+        const string PATH_TO_ARCHIVE_DATA = ".\\archive.txt";
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
             try
             {
-                fileIndex.SaveCriminals(PATH_TO_DATA);
+                fileIndex.SaveCriminals(PATH_TO_LIST_DATA);
+                archiveList.SaveCriminals(PATH_TO_ARCHIVE_DATA);
                 MessageBox.Show("Данні було успішно збережено!", "Save Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
@@ -130,7 +132,8 @@ namespace InterpolFile
         {
             try
             {
-                fileIndex.LoadCriminals(PATH_TO_DATA);
+                fileIndex.LoadCriminals(PATH_TO_LIST_DATA);
+                archiveList.LoadCriminals(PATH_TO_ARCHIVE_DATA);
                 MessageBox.Show("Дані успішно завантажено!", "Load Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 RefreshCriminalsControl();
             }

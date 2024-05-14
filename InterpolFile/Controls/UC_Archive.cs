@@ -29,7 +29,7 @@ namespace InterpolFile.Controls
         {
             archiveList.Items.Clear();
 
-            foreach (var criminal in archive.ArchiveList)
+            foreach (var criminal in archive.Criminals)
             {
                 ListViewItem item = new ListViewItem(new string[]
                 {
@@ -55,7 +55,7 @@ namespace InterpolFile.Controls
             if (archiveList.SelectedItems.Count > 0)
             {
                 int selectedIndex = archiveList.SelectedItems[0].Index;
-                var list = archive.ArchiveList;
+                var list = archive.Criminals;
 
                 var selectedCriminal = list[selectedIndex];
                 var dialog = new CriminalEditForm(selectedCriminal, archive, fileIndex);

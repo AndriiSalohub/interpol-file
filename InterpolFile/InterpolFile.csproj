@@ -107,6 +107,7 @@
     <Compile Include="Models\Archive.cs" />
     <Compile Include="Models\Criminal.cs" />
     <Compile Include="Models\FileIndex.cs" />
+    <Compile Include="Models\IndexManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Controls\UC_Archive.resx">

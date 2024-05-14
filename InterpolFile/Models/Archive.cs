@@ -6,30 +6,24 @@ using System.Threading.Tasks;
 
 namespace InterpolFile.Models
 {
-    public class Archive
+    public class Archive : IndexManager
     {
-        public Archive()
+        public Archive() : base()
         {
-            ArchiveList = new List<Criminal>();
-            SortedBy = "";
         }
-
-        public List<Criminal> ArchiveList { get; set; }
-        public string SortedBy { get; set; }
-
 
         public void AddCriminalToArchive(Criminal criminal)
         {
-            ArchiveList.Add(criminal);
+            Criminals.Add(criminal);
         }
 
         public void DeleteCriminalFromArchive(string firstName, string lastName)
         {
-            Criminal criminalToRemove = ArchiveList.FirstOrDefault(c => c.FirstName == firstName && c.LastName == lastName);
+            Criminal criminalToRemove = Criminals.FirstOrDefault(c => c.FirstName == firstName && c.LastName == lastName);
 
             if (criminalToRemove != null)
             {
-                ArchiveList.Remove(criminalToRemove);
+                Criminals.Remove(criminalToRemove);
             }
         }
 
