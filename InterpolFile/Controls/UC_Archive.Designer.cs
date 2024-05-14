@@ -42,10 +42,10 @@
             this.birthDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.placeOfBirth = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.archiveTitle = new System.Windows.Forms.Label();
-            this.sortButton = new System.Windows.Forms.Button();
-            this.sortOptionsComboBox = new System.Windows.Forms.ComboBox();
-            this.searchButton = new System.Windows.Forms.Button();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
+            this.sortArchiveButton = new System.Windows.Forms.Button();
+            this.archiveSortOptionsComboBox = new System.Windows.Forms.ComboBox();
+            this.searchArchiveButton = new System.Windows.Forms.Button();
+            this.searchArchiveTextBox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // archiveList
@@ -156,58 +156,61 @@
             this.archiveTitle.TabIndex = 107;
             this.archiveTitle.Text = "Архів";
             // 
-            // sortButton
+            // sortArchiveButton
             // 
-            this.sortButton.Location = new System.Drawing.Point(990, 129);
-            this.sortButton.Margin = new System.Windows.Forms.Padding(2);
-            this.sortButton.Name = "sortButton";
-            this.sortButton.Size = new System.Drawing.Size(106, 29);
-            this.sortButton.TabIndex = 111;
-            this.sortButton.Text = "Сортувати";
-            this.sortButton.UseVisualStyleBackColor = true;
+            this.sortArchiveButton.Location = new System.Drawing.Point(990, 129);
+            this.sortArchiveButton.Margin = new System.Windows.Forms.Padding(2);
+            this.sortArchiveButton.Name = "sortArchiveButton";
+            this.sortArchiveButton.Size = new System.Drawing.Size(106, 29);
+            this.sortArchiveButton.TabIndex = 111;
+            this.sortArchiveButton.Text = "Сортувати";
+            this.sortArchiveButton.UseVisualStyleBackColor = true;
+            this.sortArchiveButton.Click += new System.EventHandler(this.sortArchiveButton_Click);
             // 
-            // sortOptionsComboBox
+            // archiveSortOptionsComboBox
             // 
-            this.sortOptionsComboBox.FormattingEnabled = true;
-            this.sortOptionsComboBox.Items.AddRange(new object[] {
+            this.archiveSortOptionsComboBox.FormattingEnabled = true;
+            this.archiveSortOptionsComboBox.Items.AddRange(new object[] {
             "Виберіть сортування",
             "Ім\'я",
             "Прізвище",
             "Зріст",
             "Вік"});
-            this.sortOptionsComboBox.Location = new System.Drawing.Point(784, 129);
-            this.sortOptionsComboBox.Margin = new System.Windows.Forms.Padding(2);
-            this.sortOptionsComboBox.Name = "sortOptionsComboBox";
-            this.sortOptionsComboBox.Size = new System.Drawing.Size(202, 29);
-            this.sortOptionsComboBox.TabIndex = 110;
-            this.sortOptionsComboBox.Text = "Виберіть сортування";
+            this.archiveSortOptionsComboBox.Location = new System.Drawing.Point(784, 129);
+            this.archiveSortOptionsComboBox.Margin = new System.Windows.Forms.Padding(2);
+            this.archiveSortOptionsComboBox.Name = "archiveSortOptionsComboBox";
+            this.archiveSortOptionsComboBox.Size = new System.Drawing.Size(202, 29);
+            this.archiveSortOptionsComboBox.TabIndex = 110;
+            this.archiveSortOptionsComboBox.Text = "Виберіть сортування";
+            this.archiveSortOptionsComboBox.SelectedIndexChanged += new System.EventHandler(this.archiveSortOptionsComboBox_SelectedIndexChanged);
             // 
-            // searchButton
+            // searchArchiveButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(691, 129);
-            this.searchButton.Margin = new System.Windows.Forms.Padding(2);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(81, 29);
-            this.searchButton.TabIndex = 109;
-            this.searchButton.Text = "Пошук";
-            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchArchiveButton.Location = new System.Drawing.Point(691, 129);
+            this.searchArchiveButton.Margin = new System.Windows.Forms.Padding(2);
+            this.searchArchiveButton.Name = "searchArchiveButton";
+            this.searchArchiveButton.Size = new System.Drawing.Size(81, 29);
+            this.searchArchiveButton.TabIndex = 109;
+            this.searchArchiveButton.Text = "Пошук";
+            this.searchArchiveButton.UseVisualStyleBackColor = true;
+            this.searchArchiveButton.Click += new System.EventHandler(this.searchArchiveButton_Click);
             // 
-            // searchTextBox
+            // searchArchiveTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(404, 129);
-            this.searchTextBox.Margin = new System.Windows.Forms.Padding(2);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(283, 27);
-            this.searchTextBox.TabIndex = 108;
+            this.searchArchiveTextBox.Location = new System.Drawing.Point(404, 129);
+            this.searchArchiveTextBox.Margin = new System.Windows.Forms.Padding(2);
+            this.searchArchiveTextBox.Name = "searchArchiveTextBox";
+            this.searchArchiveTextBox.Size = new System.Drawing.Size(283, 27);
+            this.searchArchiveTextBox.TabIndex = 108;
             // 
             // UC_Archive
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.sortButton);
-            this.Controls.Add(this.sortOptionsComboBox);
-            this.Controls.Add(this.searchButton);
-            this.Controls.Add(this.searchTextBox);
+            this.Controls.Add(this.sortArchiveButton);
+            this.Controls.Add(this.archiveSortOptionsComboBox);
+            this.Controls.Add(this.searchArchiveButton);
+            this.Controls.Add(this.searchArchiveTextBox);
             this.Controls.Add(this.archiveTitle);
             this.Controls.Add(this.archiveList);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -235,9 +238,9 @@
         private System.Windows.Forms.ColumnHeader birthDate;
         private System.Windows.Forms.ColumnHeader placeOfBirth;
         private System.Windows.Forms.Label archiveTitle;
-        private System.Windows.Forms.Button sortButton;
-        private System.Windows.Forms.ComboBox sortOptionsComboBox;
-        private System.Windows.Forms.Button searchButton;
-        private System.Windows.Forms.TextBox searchTextBox;
+        private System.Windows.Forms.Button sortArchiveButton;
+        private System.Windows.Forms.ComboBox archiveSortOptionsComboBox;
+        private System.Windows.Forms.Button searchArchiveButton;
+        private System.Windows.Forms.TextBox searchArchiveTextBox;
     }
 }

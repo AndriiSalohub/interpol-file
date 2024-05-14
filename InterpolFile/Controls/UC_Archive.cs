@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using InterpolFile.Forms;
 using InterpolFile.Models;
@@ -29,12 +30,24 @@ namespace InterpolFile.Controls
         public void PopulateArchiveListView()
         {
             archiveList.Items.Clear();
+            var list = CriminalUtils.GetSortedCriminals(archive.Criminals, archive.SortedBy);
 
-            foreach (var criminal in archive.Criminals)
+            foreach (var criminal in list)
             {
                 archiveList.Items.Add(CriminalUtils.CreateCriminalListViewItem(criminal));
             }
         }
+
+        public void PopulateArchiveListView(List<Criminal> criminals)
+        {
+            archiveList.Items.Clear();
+
+            foreach (var criminal in criminals)
+            {
+                archiveList.Items.Add(CriminalUtils.CreateCriminalListViewItem(criminal));
+            }
+        }
+
 
         private void archiveList_DoubleClick(object sender, EventArgs e)
         {
@@ -47,6 +60,47 @@ namespace InterpolFile.Controls
             {
                 CriminalUtils.OpenSelectedCriminalEditForm(this, fileIndex, archive, archiveList);
             }
+        }
+
+        private void searchArchiveButton_Click(object sender, EventArgs e)
+        {
+            string searchText = searchArchiveTextBox.Text;
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                PopulateArchiveListView();
+            }
+            else
+            {
+                var searchedCriminals = CriminalUtils.SearchCriminals(archive.Criminals, searchText);
+                PopulateArchiveListView(CriminalUtils.GetSortedCriminals(searchedCriminals, archive.SortedBy));
+            }
+        }
+
+        private void archiveSortOptionsComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            switch (archiveSortOptionsComboBox.SelectedItem.ToString())
+            {
+                case "Ім'я":
+                    archive.SortedBy = "firstName";
+                    break;
+                case "Прізвище":
+                    archive.SortedBy = "lastName";
+                    break;
+                case "Зріст":
+                    archive.SortedBy = "height";
+                    break;
+                case "Вік":
+                    archive.SortedBy = "dateOfBirth";
+                    break;
+                default:
+                    archive.SortedBy = "";
+                    break;
+            }
+        }
+
+        private void sortArchiveButton_Click(object sender, EventArgs e)
+        {
+            PopulateArchiveListView();
         }
     }
 }

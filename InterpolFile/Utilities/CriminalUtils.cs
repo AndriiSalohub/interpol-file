@@ -31,22 +31,20 @@ namespace InterpolFile.Utilities
             });
         }
 
-        public static List<Criminal> GetSortedCriminals(FileIndex fileIndex)
+        public static List<Criminal> GetSortedCriminals(IEnumerable<Criminal> criminals, string sortBy)
         {
-            var list = fileIndex.Criminals;
-
-            switch (fileIndex.SortedBy)
+            switch (sortBy)
             {
                 case "firstName":
-                    return list.OrderBy(c => c.FirstName).ToList();
+                    return criminals.OrderBy(c => c.FirstName).ToList();
                 case "lastName":
-                    return list.OrderBy(c => c.LastName).ToList();
+                    return criminals.OrderBy(c => c.LastName).ToList();
                 case "height":
-                    return list.OrderBy(c => c.Height).ToList();
+                    return criminals.OrderBy(c => c.Height).ToList();
                 case "dateOfBirth":
-                    return list.OrderBy(c => DateTime.Parse(c.DateOfBirth)).ToList();
+                    return criminals.OrderBy(c => DateTime.Parse(c.DateOfBirth)).ToList();
                 default:
-                    return list;
+                    return criminals.ToList();
             }
         }
 
@@ -57,7 +55,7 @@ namespace InterpolFile.Utilities
 
             if (currentUserControl is UC_Criminals)
             {
-                list = GetSortedCriminals(fileIndex);
+                list = GetSortedCriminals(fileIndex.Criminals, fileIndex.SortedBy);
                 var selectedCriminal = list[selectedIndex];
                 var dialog = new CriminalEditForm(fileIndex, selectedCriminal, archive);
                 dialog.CriminalDeleted += () => RefreshData(currentUserControl);
@@ -71,7 +69,7 @@ namespace InterpolFile.Utilities
             }
             else if (currentUserControl is UC_Archive)
             {
-                list = archive.Criminals;
+                list = GetSortedCriminals(archive.Criminals, archive.SortedBy);
                 var selectedCriminal = list[selectedIndex];
                 var dialog = new CriminalEditForm(selectedCriminal, archive, fileIndex);
                 if (dialog.ShowDialog() == DialogResult.OK)
@@ -93,6 +91,27 @@ namespace InterpolFile.Utilities
             {
                 (currentUserControl as UC_Archive).PopulateArchiveListView();
             }
+        }
+
+        public static List<Criminal> SearchCriminals(List<Criminal> criminals, string searchText)
+        {
+            searchText = searchText.ToLower();
+
+            return criminals.Where(criminal =>
+                criminal.FirstName.ToLower().Contains(searchText) ||
+                criminal.LastName.ToLower().Contains(searchText) ||
+                criminal.HairColor.ToLower().Contains(searchText) ||
+                criminal.EyeColor.ToLower().Contains(searchText) ||
+                criminal.Alias.ToLower().Contains(searchText) ||
+                criminal.DistinguishingFeatures.ToLower().Contains(searchText) ||
+                criminal.CriminalProfession.ToLower().Contains(searchText) ||
+                criminal.LastCase.ToLower().Contains(searchText) ||
+                string.Join(", ", criminal.LanguagesKnown).ToLower().Contains(searchText) ||
+                criminal.LastKnownResidence.ToLower().Contains(searchText) ||
+                criminal.BirthPlace.ToLower().Contains(searchText) ||
+                criminal.DateOfBirth.Contains(searchText) ||
+                criminal.Height.ToString().Contains(searchText)
+            ).ToList();
         }
     }
 }

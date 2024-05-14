@@ -79,9 +79,19 @@ namespace InterpolFile.Controls
         public void PopulateCriminalsListView()
         {
             criminalsList.Items.Clear();
-            var list = CriminalUtils.GetSortedCriminals(fileIndex);
+            var list = CriminalUtils.GetSortedCriminals(fileIndex.Criminals, fileIndex.SortedBy);
 
             foreach (var criminal in list)
+            {
+                criminalsList.Items.Add(CriminalUtils.CreateCriminalListViewItem(criminal));
+            }
+        }
+
+        public void PopulateCriminalsListView(List<Criminal> criminals)
+        {
+            criminalsList.Items.Clear();
+
+            foreach (var criminal in criminals)
             {
                 criminalsList.Items.Add(CriminalUtils.CreateCriminalListViewItem(criminal));
             }
@@ -158,48 +168,15 @@ namespace InterpolFile.Controls
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            string searchText = searchTextBox.Text.ToLower();
+            string searchText = searchTextBox.Text;
             if (string.IsNullOrWhiteSpace(searchText))
             {
                 PopulateCriminalsListView();
             }
             else
             {
-                criminalsList.Items.Clear();
-                foreach (var criminal in fileIndex.Criminals)
-                {
-                    if (criminal.FirstName.ToLower().Contains(searchText) ||
-                        criminal.LastName.ToLower().Contains(searchText) ||
-                        criminal.HairColor.ToLower().Contains(searchText) ||
-                        criminal.EyeColor.ToLower().Contains(searchText) ||
-                        criminal.Alias.ToLower().Contains(searchText) ||
-                        criminal.DistinguishingFeatures.ToLower().Contains(searchText) ||
-                        criminal.CriminalProfession.ToLower().Contains(searchText) ||
-                        criminal.LastCase.ToLower().Contains(searchText) ||
-                        String.Join(", ", criminal.LanguagesKnown).ToLower().Contains(searchText) ||
-                        criminal.LastKnownResidence.ToLower().Contains(searchText) ||
-                        criminal.BirthPlace.ToLower().Contains(searchText) ||
-                        criminal.DateOfBirth.Contains(searchText) ||
-                        criminal.Height.ToString().Contains(searchText))
-                    {
-                        ListViewItem item = new ListViewItem(new string[]
-                        {
-                    $"{criminal.FirstName} {criminal.LastName}",
-                    criminal.HairColor,
-                    criminal.EyeColor,
-                    criminal.Height.ToString(),
-                    criminal.Alias,
-                    criminal.DistinguishingFeatures,
-                    criminal.CriminalProfession,
-                    criminal.LastCase,
-                    String.Join(", ", criminal.LanguagesKnown),
-                    criminal.LastKnownResidence,
-                    criminal.DateOfBirth,
-                    criminal.BirthPlace
-                        });
-                        criminalsList.Items.Add(item);
-                    }
-                }
+                var searchedCriminals = CriminalUtils.SearchCriminals(fileIndex.Criminals, searchText);
+                PopulateCriminalsListView(CriminalUtils.GetSortedCriminals(searchedCriminals, fileIndex.SortedBy));
             }
         }
 
