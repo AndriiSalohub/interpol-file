@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace InterpolFile.Models
 {
@@ -17,6 +18,11 @@ namespace InterpolFile.Models
         {
             Criminals = new List<Criminal>();
             SortedBy = "";
+        }
+
+        public void AddCriminal(Criminal criminal)
+        {
+            Criminals.Add(criminal);
         }
 
         public void SaveCriminals(string path)
@@ -38,7 +44,11 @@ namespace InterpolFile.Models
             }
 
             string jsonString = File.ReadAllText(path);
-            Criminals = JsonSerializer.Deserialize<List<Criminal>>(jsonString);
+            List<Criminal> loadedCriminals = JsonSerializer.Deserialize<List<Criminal>>(jsonString);
+            for (int i = 0; i < loadedCriminals.Count; i++)
+            {
+                Criminals.Add(loadedCriminals[i]);
+            }
 
             if (Criminals == null)
             {

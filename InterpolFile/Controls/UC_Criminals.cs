@@ -41,6 +41,7 @@ namespace InterpolFile.Controls
             if (ValidateFields())
             {
                 AddCriminalToIndex();
+                ResetForm();
                 PopulateCriminalsListView();
             }
         }
@@ -54,6 +55,25 @@ namespace InterpolFile.Controls
                 aliasTextBox.Text, distinguishingFeaturesTextBox.Text,
                 professionTextBox.Text, lastCrimeTextBox.Text,
                 languagesTextBox.Text.Split(',').ToList(), lastKnownPlaceTextBox.Text);
+        }
+
+        private void ResetForm()
+        {
+            firstNameTextBox.Text = "";
+            lastNameTextBox.Text = "";
+            eyesColorTextBox.Text = "";
+            hairColorTextBox.Text = "";
+            birthPlaceTextBox.Text = "";
+            aliasTextBox.Text = "";
+            distinguishingFeaturesTextBox.Text = "";
+            professionTextBox.Text = "";
+            lastCrimeTextBox.Text = "";
+            languagesTextBox.Text = "";
+            lastKnownPlaceTextBox.Text = "";
+
+            heightUpDown.Value = heightUpDown.Minimum;
+
+            birthDateTimePicker.Value = birthDateTimePicker.MaxDate;
         }
 
         public void PopulateCriminalsListView()
