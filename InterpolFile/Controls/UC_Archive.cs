@@ -48,7 +48,6 @@ namespace InterpolFile.Controls
             }
         }
 
-
         private void archiveList_DoubleClick(object sender, EventArgs e)
         {
             CriminalUtils.OpenSelectedCriminalEditForm(this, fileIndex, archive, archiveList);

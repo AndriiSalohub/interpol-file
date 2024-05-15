@@ -343,6 +343,7 @@
             // birthDateTimePicker
             // 
             this.birthDateTimePicker.CustomFormat = "dd/MM/yyyy";
+            this.birthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.birthDateTimePicker.Location = new System.Drawing.Point(178, 93);
             this.birthDateTimePicker.MaxDate = new System.DateTime(2006, 6, 1, 0, 0, 0, 0);
             this.birthDateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);

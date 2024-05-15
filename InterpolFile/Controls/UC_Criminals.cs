@@ -102,6 +102,8 @@ namespace InterpolFile.Controls
             CriminalUtils.OpenSelectedCriminalEditForm(this, fileIndex, archive, criminalsList);
         }
 
+        // Fields validation
+
         private void AttachValidatingHandlers()
         {
             var fieldsToValidate = new Dictionary<TextBoxBase, Label>
@@ -122,6 +124,7 @@ namespace InterpolFile.Controls
             foreach (var pair in fieldsToValidate)
             {
                 pair.Key.Validating += (sender, e) => ValidateTextField(pair.Key, pair.Value);
+                pair.Key.Validated += (sender, e) => HideErrorLabel(pair.Value);
             }
         }
 
@@ -166,20 +169,12 @@ namespace InterpolFile.Controls
             return isValid;
         }
 
-        private void searchButton_Click(object sender, EventArgs e)
+        private void HideErrorLabel(Label errorLabel)
         {
-            string searchText = searchTextBox.Text;
-            if (string.IsNullOrWhiteSpace(searchText))
-            {
-                PopulateCriminalsListView();
-            }
-            else
-            {
-                var searchedCriminals = CriminalUtils.SearchCriminals(fileIndex.Criminals, searchText);
-                PopulateCriminalsListView(CriminalUtils.GetSortedCriminals(searchedCriminals, fileIndex.SortedBy));
-            }
+            errorLabel.Visible = false;
         }
 
+        // Sorting and searching
         private void sortOptionsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (sortOptionsComboBox.SelectedItem.ToString())
@@ -207,6 +202,20 @@ namespace InterpolFile.Controls
         private void sortButton_Click(object sender, EventArgs e)
         {
             PopulateCriminalsListView();
+        }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            string searchText = searchTextBox.Text;
+            if (string.IsNullOrWhiteSpace(searchText))
+            {
+                PopulateCriminalsListView();
+            }
+            else
+            {
+                var searchedCriminals = CriminalUtils.SearchCriminals(fileIndex.Criminals, searchText);
+                PopulateCriminalsListView(CriminalUtils.GetSortedCriminals(searchedCriminals, fileIndex.SortedBy));
+            }
         }
 
         private void criminalsList_KeyUp(object sender, KeyEventArgs e)
