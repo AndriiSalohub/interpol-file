@@ -29,11 +29,12 @@ namespace InterpolFile.Models
         {
             var options = new JsonSerializerOptions
             {
-                WriteIndented = true
+                WriteIndented = true,
+                Encoder = System.Text.Encodings.Web.JavaScriptEncoder.UnsafeRelaxedJsonEscaping
             };
 
             string jsonString = JsonSerializer.Serialize(Criminals, options);
-            File.WriteAllText(path, jsonString);
+            File.WriteAllText(path, jsonString, Encoding.UTF8);
         }
 
         public void LoadCriminals(string path)

@@ -160,5 +160,59 @@ namespace InterpolFile
                 CriminalUtils.RefreshData(archiveControl);
             }
         }
+
+        private void saveAs_Click(object sender, EventArgs e)
+        {
+            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            {
+                saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+                saveFileDialog.DefaultExt = "txt";
+                saveFileDialog.AddExtension = true;
+                saveFileDialog.Title = "Save your data file";
+
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (currentControl is UC_Criminals)
+                    {
+                        string filePath = saveFileDialog.FileName;
+                        fileIndex.SaveCriminals(filePath);
+                    }
+                    else
+                    {
+
+                        string filePath = saveFileDialog.FileName;
+                        archiveList.SaveCriminals(filePath);
+                    }
+                }
+            }
+        }
+
+        private void openAs_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+                openFileDialog.DefaultExt = "txt";
+                openFileDialog.AddExtension = true;
+                openFileDialog.Title = "Open your data file";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    if (currentControl is UC_Criminals)
+                    {
+                        string filePath = openFileDialog.FileName;
+                        fileIndex.LoadCriminals(filePath);
+                    }
+                    else
+                    {
+
+                        string filePath = openFileDialog.FileName;
+                        archiveList.LoadCriminals(filePath);
+                    }
+
+                    RefreshCriminalsControl();
+                }
+            }
+        }
     }
 }

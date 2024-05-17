@@ -159,7 +159,7 @@ namespace InterpolFile.Forms
             var confirmResult = MessageBox.Show("Ви впевнені, що хочете перенести цього злочинця в архів?", "Confirm Archive", MessageBoxButtons.YesNo);
             if (confirmResult == DialogResult.Yes)
             {
-                archive.AddCriminalToArchive(criminal);
+                archive.AddCriminal(criminal);
                 fileIndex.DeleteCriminal(criminal.FirstName, criminal.LastName);
                 MessageBox.Show("Злочинець успішно був перенесений в архів.", "Archive Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
 

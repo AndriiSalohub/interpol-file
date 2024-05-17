@@ -40,6 +40,7 @@ namespace InterpolFile.Controls
                 lastCrimeTextBox, lastCrimeErrorLabel,
                 languagesTextBox, languagesErrorLabel,
                 lastKnownPlaceTextBox, lastPlaceErrorLabel);
+
             Validator.AttachValidatingHandlers(fieldsToValidate);
             PopulateCriminalsListView();
         }

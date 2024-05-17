@@ -46,6 +46,8 @@ namespace InterpolFile
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu = new System.Windows.Forms.MenuStrip();
+            this.saveAs = new System.Windows.Forms.ToolStripMenuItem();
+            this.openAs = new System.Windows.Forms.ToolStripMenuItem();
             this.navigationPanel.SuspendLayout();
             this.menu.SuspendLayout();
             this.SuspendLayout();
@@ -123,8 +125,10 @@ namespace InterpolFile
             // 
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.openToolStripMenuItem,
+            this.openAs,
             this.toolStripSeparator,
             this.saveToolStripMenuItem,
+            this.saveAs,
             this.toolStripSeparator2,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.ForeColor = System.Drawing.Color.White;
@@ -203,6 +207,20 @@ namespace InterpolFile
             this.menu.TabIndex = 2;
             this.menu.Text = "menu";
             // 
+            // saveAs
+            // 
+            this.saveAs.Name = "saveAs";
+            this.saveAs.Size = new System.Drawing.Size(180, 22);
+            this.saveAs.Text = "Save as";
+            this.saveAs.Click += new System.EventHandler(this.saveAs_Click);
+            // 
+            // openAs
+            // 
+            this.openAs.Name = "openAs";
+            this.openAs.Size = new System.Drawing.Size(180, 22);
+            this.openAs.Text = "Open as";
+            this.openAs.Click += new System.EventHandler(this.openAs_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,6 +257,8 @@ namespace InterpolFile
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
         private System.Windows.Forms.MenuStrip menu;
         private System.Windows.Forms.Panel divider;
+        private System.Windows.Forms.ToolStripMenuItem saveAs;
+        private System.Windows.Forms.ToolStripMenuItem openAs;
     }
 }
 
