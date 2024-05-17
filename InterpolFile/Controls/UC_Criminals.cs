@@ -149,6 +149,7 @@ namespace InterpolFile.Controls
         private void searchButton_Click(object sender, EventArgs e)
         {
             string searchText = searchTextBox.Text;
+            fileIndex.SearchTerm = searchText;
             if (string.IsNullOrWhiteSpace(searchText))
             {
                 PopulateCriminalsListView();

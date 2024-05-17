@@ -172,18 +172,57 @@ namespace InterpolFile
 
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
+                    string filePath = saveFileDialog.FileName;
+
                     if (currentControl is UC_Criminals)
                     {
-                        string filePath = saveFileDialog.FileName;
+                        var currentCriminals = fileIndex.Criminals.ToList();
+                        fileIndex.Criminals = GetCurrentSearchResults(fileIndex);
                         fileIndex.SaveCriminals(filePath);
+                        fileIndex.Criminals = currentCriminals;
                     }
                     else
                     {
-
-                        string filePath = saveFileDialog.FileName;
+                        var currentCriminals = archiveList.Criminals.ToList();
+                        archiveList.Criminals = GetCurrentSearchResults(archiveList);
                         archiveList.SaveCriminals(filePath);
+                        archiveList.Criminals = currentCriminals;
                     }
                 }
+            }
+        }
+
+        private List<Criminal> GetCurrentSearchResults(object list)
+        {
+            if (list is FileIndex)
+            {
+                var fileIndex = (FileIndex)list;
+                if (string.IsNullOrWhiteSpace(fileIndex.SearchTerm))
+                {
+                    return fileIndex.Criminals;
+                }
+                else
+                {
+                    var searchedCriminals = CriminalUtils.SearchCriminals(fileIndex.Criminals, fileIndex.SearchTerm);
+                    return CriminalUtils.GetSortedCriminals(searchedCriminals, fileIndex.SortedBy);
+                }
+            }
+            else if (list is Archive)
+            {
+                var archiveList = (Archive)list;
+                if (string.IsNullOrWhiteSpace(archiveList.SearchTerm))
+                {
+                    return archiveList.Criminals;
+                }
+                else
+                {
+                    var searchedCriminals = CriminalUtils.SearchCriminals(archiveList.Criminals, archiveList.SearchTerm);
+                    return CriminalUtils.GetSortedCriminals(searchedCriminals, archiveList.SortedBy);
+                }
+            }
+            else
+            {
+                return null;
             }
         }
 

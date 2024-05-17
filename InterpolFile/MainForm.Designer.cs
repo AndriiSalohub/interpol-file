@@ -69,7 +69,7 @@ namespace InterpolFile
             // 
             // divider
             // 
-            this.divider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.divider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
             | System.Windows.Forms.AnchorStyles.Right)));
             this.divider.BackColor = System.Drawing.Color.MidnightBlue;
             this.divider.Location = new System.Drawing.Point(0, 0);

@@ -64,6 +64,7 @@ namespace InterpolFile.Controls
         private void searchArchiveButton_Click(object sender, EventArgs e)
         {
             string searchText = searchArchiveTextBox.Text;
+            archive.SearchTerm = searchText;
             if (string.IsNullOrWhiteSpace(searchText))
             {
                 PopulateArchiveListView();

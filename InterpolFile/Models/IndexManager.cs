@@ -13,6 +13,7 @@ namespace InterpolFile.Models
     {
         public List<Criminal> Criminals { get; set; }
         public string SortedBy { get; set; }
+        public string SearchTerm { get; set; }
 
         public IndexManager()
         {
