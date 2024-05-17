@@ -16,6 +16,5 @@ namespace InterpolFile.Controls
         {
             InitializeComponent();
         }
-
     }
 }

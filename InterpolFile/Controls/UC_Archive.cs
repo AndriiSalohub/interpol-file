@@ -63,17 +63,8 @@ namespace InterpolFile.Controls
 
         private void searchArchiveButton_Click(object sender, EventArgs e)
         {
-            string searchText = searchArchiveTextBox.Text;
-            archive.SearchTerm = searchText;
-            if (string.IsNullOrWhiteSpace(searchText))
-            {
-                PopulateArchiveListView();
-            }
-            else
-            {
-                var searchedCriminals = CriminalUtils.SearchCriminals(archive.Criminals, searchText);
-                PopulateArchiveListView(CriminalUtils.GetSortedCriminals(searchedCriminals, archive.SortedBy));
-            }
+            var searchedCriminals = SearchUtils.SearchCriminals(archive, searchArchiveTextBox.Text);
+            PopulateArchiveListView(searchedCriminals);
         }
 
         private void archiveSortOptionsComboBox_SelectedIndexChanged(object sender, EventArgs e)

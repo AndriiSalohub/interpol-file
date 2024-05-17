@@ -135,8 +135,8 @@ namespace InterpolFile
             {
                 fileIndex.LoadCriminals(PATH_TO_LIST_DATA);
                 archiveList.LoadCriminals(PATH_TO_ARCHIVE_DATA);
-                MessageBox.Show("Дані успішно завантажено!", "Load Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 RefreshCriminalsControl();
+                MessageBox.Show("Дані успішно завантажено!", "Load Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (FileNotFoundException)
             {
@@ -145,19 +145,6 @@ namespace InterpolFile
             catch (Exception ex)
             {
                 MessageBox.Show($"Не вдалося завантажити дані. Помилка: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
-        private void RefreshCriminalsControl()
-        {
-            if (currentControl is UC_Criminals criminalsControl)
-            {
-                CriminalUtils.RefreshData(criminalsControl);
-            }
-
-            if (currentControl is UC_Archive archiveControl)
-            {
-                CriminalUtils.RefreshData(archiveControl);
             }
         }
 
@@ -188,35 +175,34 @@ namespace InterpolFile
                         archiveList.SaveCriminals(filePath);
                         archiveList.Criminals = currentCriminals;
                     }
+                    MessageBox.Show("Данні було успішно збережено!", "Save Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
+
             }
         }
-
         private List<Criminal> GetCurrentSearchResults(object list)
         {
-            if (list is FileIndex)
+            if (list is FileIndex fileIndex)
             {
-                var fileIndex = (FileIndex)list;
                 if (string.IsNullOrWhiteSpace(fileIndex.SearchTerm))
                 {
                     return fileIndex.Criminals;
                 }
                 else
                 {
-                    var searchedCriminals = CriminalUtils.SearchCriminals(fileIndex.Criminals, fileIndex.SearchTerm);
+                    var searchedCriminals = SearchUtils.SearchCriminals(fileIndex.Criminals, fileIndex.SearchTerm);
                     return CriminalUtils.GetSortedCriminals(searchedCriminals, fileIndex.SortedBy);
                 }
             }
-            else if (list is Archive)
+            else if (list is Archive archiveList)
             {
-                var archiveList = (Archive)list;
                 if (string.IsNullOrWhiteSpace(archiveList.SearchTerm))
                 {
                     return archiveList.Criminals;
                 }
                 else
                 {
-                    var searchedCriminals = CriminalUtils.SearchCriminals(archiveList.Criminals, archiveList.SearchTerm);
+                    var searchedCriminals = SearchUtils.SearchCriminals(archiveList.Criminals, archiveList.SearchTerm);
                     return CriminalUtils.GetSortedCriminals(searchedCriminals, archiveList.SortedBy);
                 }
             }
@@ -250,8 +236,23 @@ namespace InterpolFile
                     }
 
                     RefreshCriminalsControl();
+                    MessageBox.Show("Дані успішно завантажено!", "Load Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
+
+        private void RefreshCriminalsControl()
+        {
+            if (currentControl is UC_Criminals criminalsControl)
+            {
+                CriminalUtils.RefreshData(criminalsControl);
+            }
+
+            if (currentControl is UC_Archive archiveControl)
+            {
+                CriminalUtils.RefreshData(archiveControl);
+            }
+        }
+
     }
 }

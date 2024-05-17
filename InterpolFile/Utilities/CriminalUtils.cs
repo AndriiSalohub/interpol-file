@@ -92,26 +92,5 @@ namespace InterpolFile.Utilities
                 (currentUserControl as UC_Archive).PopulateArchiveListView();
             }
         }
-
-        public static List<Criminal> SearchCriminals(List<Criminal> criminals, string searchText)
-        {
-            searchText = searchText.ToLower();
-
-            return criminals.Where(criminal =>
-                criminal.FirstName.ToLower().Contains(searchText) ||
-                criminal.LastName.ToLower().Contains(searchText) ||
-                criminal.HairColor.ToLower().Contains(searchText) ||
-                criminal.EyeColor.ToLower().Contains(searchText) ||
-                criminal.Alias.ToLower().Contains(searchText) ||
-                criminal.DistinguishingFeatures.ToLower().Contains(searchText) ||
-                criminal.CriminalProfession.ToLower().Contains(searchText) ||
-                criminal.LastCase.ToLower().Contains(searchText) ||
-                string.Join(", ", criminal.LanguagesKnown).ToLower().Contains(searchText) ||
-                criminal.LastKnownResidence.ToLower().Contains(searchText) ||
-                criminal.BirthPlace.ToLower().Contains(searchText) ||
-                criminal.DateOfBirth.Contains(searchText) ||
-                criminal.Height.ToString().Contains(searchText)
-            ).ToList();
-        }
     }
 }

@@ -19,6 +19,7 @@ namespace InterpolFile.Models
         {
             Criminals = new List<Criminal>();
             SortedBy = "";
+            SearchTerm = "";
         }
 
         public void AddCriminal(Criminal criminal)
@@ -46,11 +47,12 @@ namespace InterpolFile.Models
             }
 
             string jsonString = File.ReadAllText(path);
-            List<Criminal> loadedCriminals = JsonSerializer.Deserialize<List<Criminal>>(jsonString);
-            for (int i = 0; i < loadedCriminals.Count; i++)
-            {
-                Criminals.Add(loadedCriminals[i]);
-            }
+            Criminals = JsonSerializer.Deserialize<List<Criminal>>(jsonString);
+            //List<Criminal> loadedCriminals = JsonSerializer.Deserialize<List<Criminal>>(jsonString);
+            //for (int i = 0; i < loadedCriminals.Count; i++)
+            //{
+            //    Criminals.Add(loadedCriminals[i]);
+            //}
 
             if (Criminals == null)
             {

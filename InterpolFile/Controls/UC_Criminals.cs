@@ -28,6 +28,17 @@ namespace InterpolFile.Controls
             this.fileIndex = fileIndex;
             this.archive = archive;
 
+            InitializeValidator();
+
+            PopulateCriminalsListView();
+        }
+
+        public void SetArchive(Archive archive)
+        {
+            this.archive = archive;
+        }
+        private void InitializeValidator()
+        {
             fieldsToValidate = Validator.GetValidationFields(
                 firstNameTextBox, firstNameErrorLabel,
                 lastNameTextBox, lastNameErrorLabel,
@@ -42,12 +53,26 @@ namespace InterpolFile.Controls
                 lastKnownPlaceTextBox, lastPlaceErrorLabel);
 
             Validator.AttachValidatingHandlers(fieldsToValidate);
-            PopulateCriminalsListView();
+        }
+        public void PopulateCriminalsListView()
+        {
+            criminalsList.Items.Clear();
+            var list = CriminalUtils.GetSortedCriminals(fileIndex.Criminals, fileIndex.SortedBy);
+
+            foreach (var criminal in list)
+            {
+                criminalsList.Items.Add(CriminalUtils.CreateCriminalListViewItem(criminal));
+            }
         }
 
-        public void SetArchive(Archive archive)
+        public void PopulateCriminalsListView(List<Criminal> criminals)
         {
-            this.archive = archive;
+            criminalsList.Items.Clear();
+
+            foreach (var criminal in criminals)
+            {
+                criminalsList.Items.Add(CriminalUtils.CreateCriminalListViewItem(criminal));
+            }
         }
 
         private void addCriminalButton_Click(object sender, EventArgs e)
@@ -90,33 +115,12 @@ namespace InterpolFile.Controls
             birthDateTimePicker.Value = birthDateTimePicker.MaxDate;
         }
 
-        public void PopulateCriminalsListView()
-        {
-            criminalsList.Items.Clear();
-            var list = CriminalUtils.GetSortedCriminals(fileIndex.Criminals, fileIndex.SortedBy);
-
-            foreach (var criminal in list)
-            {
-                criminalsList.Items.Add(CriminalUtils.CreateCriminalListViewItem(criminal));
-            }
-        }
-
-        public void PopulateCriminalsListView(List<Criminal> criminals)
-        {
-            criminalsList.Items.Clear();
-
-            foreach (var criminal in criminals)
-            {
-                criminalsList.Items.Add(CriminalUtils.CreateCriminalListViewItem(criminal));
-            }
-        }
 
         private void criminalsList_DoubleClick(object sender, EventArgs e)
         {
             CriminalUtils.OpenSelectedCriminalEditForm(this, fileIndex, archive, criminalsList);
         }
 
-        // Sorting and searching
         private void sortOptionsComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             switch (sortOptionsComboBox.SelectedItem.ToString())
@@ -137,7 +141,6 @@ namespace InterpolFile.Controls
                 default:
                     fileIndex.SortedBy = "";
                     break;
-
             }
         }
 
@@ -148,17 +151,8 @@ namespace InterpolFile.Controls
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            string searchText = searchTextBox.Text;
-            fileIndex.SearchTerm = searchText;
-            if (string.IsNullOrWhiteSpace(searchText))
-            {
-                PopulateCriminalsListView();
-            }
-            else
-            {
-                var searchedCriminals = CriminalUtils.SearchCriminals(fileIndex.Criminals, searchText);
-                PopulateCriminalsListView(CriminalUtils.GetSortedCriminals(searchedCriminals, fileIndex.SortedBy));
-            }
+            var searchedCriminals = SearchUtils.SearchCriminals(fileIndex, searchTextBox.Text);
+            PopulateCriminalsListView(searchedCriminals);
         }
 
         private void criminalsList_KeyUp(object sender, KeyEventArgs e)
