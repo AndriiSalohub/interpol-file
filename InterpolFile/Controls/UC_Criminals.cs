@@ -20,6 +20,7 @@ namespace InterpolFile.Controls
     {
         private FileIndex fileIndex;
         private Archive archive;
+        private Dictionary<TextBoxBase, Label> fieldsToValidate;
 
         public UC_Criminals(FileIndex fileIndex, Archive archive)
         {
@@ -27,7 +28,19 @@ namespace InterpolFile.Controls
             this.fileIndex = fileIndex;
             this.archive = archive;
 
-            AttachValidatingHandlers();
+            fieldsToValidate = Validator.GetValidationFields(
+                firstNameTextBox, firstNameErrorLabel,
+                lastNameTextBox, lastNameErrorLabel,
+                hairColorTextBox, hairColorErrorLabel,
+                eyesColorTextBox, eyesColorErrorLabel,
+                birthPlaceTextBox, birthPlaceErrorLabel,
+                aliasTextBox, aliasErrorLabel,
+                distinguishingFeaturesTextBox, distinguishingFeaturesErrorLabel,
+                professionTextBox, professionErrorLabel,
+                lastCrimeTextBox, lastCrimeErrorLabel,
+                languagesTextBox, languagesErrorLabel,
+                lastKnownPlaceTextBox, lastPlaceErrorLabel);
+            Validator.AttachValidatingHandlers(fieldsToValidate);
             PopulateCriminalsListView();
         }
 
@@ -38,7 +51,7 @@ namespace InterpolFile.Controls
 
         private void addCriminalButton_Click(object sender, EventArgs e)
         {
-            if (ValidateFields())
+            if (Validator.ValidateFields(fieldsToValidate))
             {
                 AddCriminalToIndex();
                 ResetForm();
@@ -100,78 +113,6 @@ namespace InterpolFile.Controls
         private void criminalsList_DoubleClick(object sender, EventArgs e)
         {
             CriminalUtils.OpenSelectedCriminalEditForm(this, fileIndex, archive, criminalsList);
-        }
-
-        // Fields validation
-
-        private void AttachValidatingHandlers()
-        {
-            var fieldsToValidate = new Dictionary<TextBoxBase, Label>
-            {
-                { firstNameTextBox, firstNameErrorLabel },
-                { lastNameTextBox, lastNameErrorLabel },
-                { hairColorTextBox, hairColorErrorLabel },
-                { eyesColorTextBox, eyesColorErrorLabel },
-                { birthPlaceTextBox, birthPlaceErrorLabel },
-                { aliasTextBox, aliasErrorLabel },
-                { distinguishingFeaturesTextBox, distinguishingFeaturesErrorLabel },
-                { professionTextBox, professionErrorLabel },
-                { lastCrimeTextBox, lastCrimeErrorLabel },
-                { languagesTextBox, languagesErrorLabel },
-                { lastKnownPlaceTextBox, lastPlaceErrorLabel }
-            };
-
-            foreach (var pair in fieldsToValidate)
-            {
-                pair.Key.Validating += (sender, e) => ValidateTextField(pair.Key, pair.Value);
-                pair.Key.Validated += (sender, e) => HideErrorLabel(pair.Value);
-            }
-        }
-
-        private bool ValidateFields()
-        {
-            bool allFieldsValid = true;
-            var validationFields = GetValidationFields();
-
-            foreach (var kv in validationFields)
-            {
-                if (!ValidateTextField(kv.Key, kv.Value))
-                {
-                    allFieldsValid = false;
-                }
-            }
-
-            return allFieldsValid;
-        }
-
-        private Dictionary<TextBoxBase, Label> GetValidationFields()
-        {
-            return new Dictionary<TextBoxBase, Label>
-            {
-                { firstNameTextBox, firstNameErrorLabel },
-                { lastNameTextBox, lastNameErrorLabel },
-                { hairColorTextBox, hairColorErrorLabel },
-                { eyesColorTextBox, eyesColorErrorLabel },
-                { birthPlaceTextBox, birthPlaceErrorLabel },
-                { aliasTextBox, aliasErrorLabel },
-                { distinguishingFeaturesTextBox, distinguishingFeaturesErrorLabel },
-                { professionTextBox, professionErrorLabel },
-                { lastCrimeTextBox, lastCrimeErrorLabel },
-                { languagesTextBox, languagesErrorLabel },
-                { lastKnownPlaceTextBox, lastPlaceErrorLabel }
-            };
-        }
-
-        private bool ValidateTextField(TextBoxBase textBox, Label errorLabel)
-        {
-            bool isValid = !string.IsNullOrWhiteSpace(textBox.Text);
-            errorLabel.Visible = !isValid;
-            return isValid;
-        }
-
-        private void HideErrorLabel(Label errorLabel)
-        {
-            errorLabel.Visible = false;
         }
 
         // Sorting and searching

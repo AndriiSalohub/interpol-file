@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using InterpolFile.Models;
+using InterpolFile.Utilities;
 
 namespace InterpolFile.Forms
 {
@@ -18,6 +19,7 @@ namespace InterpolFile.Forms
         readonly Archive archive;
         public event Action CriminalDeleted;
         public bool isFromArchive = false;
+        private Dictionary<TextBoxBase, Label> fieldsToValidate;
 
         public CriminalEditForm(FileIndex fileIndex, Criminal criminal, Archive archive)
         {
@@ -26,10 +28,7 @@ namespace InterpolFile.Forms
             this.fileIndex = fileIndex;
             this.criminal = criminal;
             this.archive = archive;
-            PopulateFields();
-            archiveButton.Visible = true;
-            backFromArchiveButton.Visible = false;
-            isFromArchive = false;
+            InitializeForm(false);
         }
 
         public CriminalEditForm(Criminal criminal, Archive archive, FileIndex fileIndex)
@@ -39,10 +38,30 @@ namespace InterpolFile.Forms
             this.archive = archive;
             this.fileIndex = fileIndex;
             this.criminal = criminal;
+            InitializeForm(true);
+        }
+
+        private void InitializeForm(bool fromArchive)
+        {
             PopulateFields();
-            archiveButton.Visible = false;
-            backFromArchiveButton.Visible = true;
-            isFromArchive = true;
+            archiveButton.Visible = !fromArchive;
+            backFromArchiveButton.Visible = fromArchive;
+            isFromArchive = fromArchive;
+
+            fieldsToValidate = Validator.GetValidationFields(
+                firstNameTextBox, firstNameErrorLabel,
+                lastNameTextBox, lastNameErrorLabel,
+                hairColorTextBox, hairColorErrorLabel,
+                eyesColorTextBox, eyesColorErrorLabel,
+                birthPlaceTextBox, birthPlaceErrorLabel,
+                aliasTextBox, aliasErrorLabel,
+                distinguishingFeaturesTextBox, distinguishingFeaturesErrorLabel,
+                professionTextBox, professionErrorLabel,
+                lastCrimeTextBox, lastCrimeErrorLabel,
+                languagesTextBox, languagesErrorLabel,
+                lastKnownPlaceTextBox, lastPlaceErrorLabel);
+
+            Validator.AttachValidatingHandlers(fieldsToValidate);
         }
 
         private void PopulateFields()
@@ -56,7 +75,7 @@ namespace InterpolFile.Forms
             birthPlaceTextBox.Text = criminal.BirthPlace;
             aliasTextBox.Text = criminal.Alias;
             distinguishingFeaturesTextBox.Text = criminal.DistinguishingFeatures;
-            proffesionTextBox.Text = criminal.CriminalProfession;
+            professionTextBox.Text = criminal.CriminalProfession;
             languagesTextBox.Text = String.Join(",", criminal.LanguagesKnown);
             lastCrimeTextBox.Text = criminal.LastCase;
             lastKnownPlaceTextBox.Text = criminal.LastKnownResidence;
@@ -64,7 +83,7 @@ namespace InterpolFile.Forms
 
         private void submitButton_Click(object sender, EventArgs e)
         {
-            if (ValidateFields())
+            if (Validator.ValidateFields(fieldsToValidate))
             {
                 UpdateCriminal();
                 this.DialogResult = DialogResult.OK;
@@ -75,43 +94,6 @@ namespace InterpolFile.Forms
                 this.DialogResult = DialogResult.None;
             }
         }
-
-        private bool ValidateFields()
-        {
-            var fieldsToValidate = new Dictionary<TextBox, Label>
-            {
-                { firstNameTextBox, firstNameErrorLabel },
-                { lastNameTextBox, lastNameErrorLabel },
-                { hairColorTextBox, hairColorErrorLabel },
-                { eyesColorTextBox, eyesColorErrorLabel },
-                { birthPlaceTextBox, birthPlaceErrorLabel },
-                { aliasTextBox, aliasErrorLabel },
-                { distinguishingFeaturesTextBox, distinguishingFeaturesErrorLabel },
-                { proffesionTextBox, proffesionErrorLabel },
-                { lastCrimeTextBox, lastCrimeErrorLabel },
-                { languagesTextBox, languagesErrorLabel },
-                { lastKnownPlaceTextBox, lastPlaceErrorLabel }
-            };
-
-            bool allFieldsValid = true;
-            foreach (var pair in fieldsToValidate)
-            {
-                if (!ValidateTextField(pair.Key, pair.Value))
-                {
-                    allFieldsValid = false;
-                }
-            }
-
-            return allFieldsValid;
-        }
-
-        private bool ValidateTextField(TextBox textBox, Label errorLabel)
-        {
-            bool isValid = !string.IsNullOrWhiteSpace(textBox.Text);
-            errorLabel.Visible = !isValid;
-            return isValid;
-        }
-
         private void UpdateCriminal()
         {
             criminal.FirstName = firstNameTextBox.Text;
@@ -123,7 +105,7 @@ namespace InterpolFile.Forms
             criminal.BirthPlace = birthPlaceTextBox.Text;
             criminal.Alias = aliasTextBox.Text;
             criminal.DistinguishingFeatures = distinguishingFeaturesTextBox.Text;
-            criminal.CriminalProfession = proffesionTextBox.Text;
+            criminal.CriminalProfession = professionTextBox.Text;
             criminal.LastCase = lastCrimeTextBox.Text;
             criminal.LanguagesKnown = languagesTextBox.Text.Split(',').ToList();
             criminal.LastKnownResidence = lastKnownPlaceTextBox.Text;

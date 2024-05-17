@@ -36,7 +36,7 @@
             this.languagesErrorLabel = new System.Windows.Forms.Label();
             this.lastCrimeErrorLabel = new System.Windows.Forms.Label();
             this.eyesColorErrorLabel = new System.Windows.Forms.Label();
-            this.proffesionErrorLabel = new System.Windows.Forms.Label();
+            this.professionErrorLabel = new System.Windows.Forms.Label();
             this.distinguishingFeaturesErrorLabel = new System.Windows.Forms.Label();
             this.aliasErrorLabel = new System.Windows.Forms.Label();
             this.hairColorErrorLabel = new System.Windows.Forms.Label();
@@ -56,7 +56,7 @@
             this.lastCrime = new System.Windows.Forms.Label();
             this.lastCrimeTextBox = new System.Windows.Forms.TextBox();
             this.birth = new System.Windows.Forms.Label();
-            this.proffesionTextBox = new System.Windows.Forms.TextBox();
+            this.professionTextBox = new System.Windows.Forms.TextBox();
             this.proffesion = new System.Windows.Forms.Label();
             this.hairColor = new System.Windows.Forms.Label();
             this.distinguishingFeaturesTextBox = new System.Windows.Forms.TextBox();
@@ -104,7 +104,7 @@
             this.criminalFormPanel.Controls.Add(this.languagesErrorLabel);
             this.criminalFormPanel.Controls.Add(this.lastCrimeErrorLabel);
             this.criminalFormPanel.Controls.Add(this.eyesColorErrorLabel);
-            this.criminalFormPanel.Controls.Add(this.proffesionErrorLabel);
+            this.criminalFormPanel.Controls.Add(this.professionErrorLabel);
             this.criminalFormPanel.Controls.Add(this.distinguishingFeaturesErrorLabel);
             this.criminalFormPanel.Controls.Add(this.aliasErrorLabel);
             this.criminalFormPanel.Controls.Add(this.hairColorErrorLabel);
@@ -124,7 +124,7 @@
             this.criminalFormPanel.Controls.Add(this.lastCrime);
             this.criminalFormPanel.Controls.Add(this.lastCrimeTextBox);
             this.criminalFormPanel.Controls.Add(this.birth);
-            this.criminalFormPanel.Controls.Add(this.proffesionTextBox);
+            this.criminalFormPanel.Controls.Add(this.professionTextBox);
             this.criminalFormPanel.Controls.Add(this.proffesion);
             this.criminalFormPanel.Controls.Add(this.hairColor);
             this.criminalFormPanel.Controls.Add(this.distinguishingFeaturesTextBox);
@@ -144,6 +144,7 @@
             // birthDateTimePicker
             // 
             this.birthDateTimePicker.CustomFormat = "dd/MM/yyyy";
+            this.birthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.birthDateTimePicker.Location = new System.Drawing.Point(178, 93);
             this.birthDateTimePicker.MaxDate = new System.DateTime(2006, 6, 1, 0, 0, 0, 0);
             this.birthDateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
@@ -200,17 +201,17 @@
             this.eyesColorErrorLabel.Text = "x";
             this.eyesColorErrorLabel.Visible = false;
             // 
-            // proffesionErrorLabel
+            // professionErrorLabel
             // 
-            this.proffesionErrorLabel.AutoSize = true;
-            this.proffesionErrorLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.proffesionErrorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.proffesionErrorLabel.Location = new System.Drawing.Point(303, 182);
-            this.proffesionErrorLabel.Name = "proffesionErrorLabel";
-            this.proffesionErrorLabel.Size = new System.Drawing.Size(14, 16);
-            this.proffesionErrorLabel.TabIndex = 39;
-            this.proffesionErrorLabel.Text = "x";
-            this.proffesionErrorLabel.Visible = false;
+            this.professionErrorLabel.AutoSize = true;
+            this.professionErrorLabel.Font = new System.Drawing.Font("Century Gothic", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.professionErrorLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.professionErrorLabel.Location = new System.Drawing.Point(303, 182);
+            this.professionErrorLabel.Name = "professionErrorLabel";
+            this.professionErrorLabel.Size = new System.Drawing.Size(14, 16);
+            this.professionErrorLabel.TabIndex = 39;
+            this.professionErrorLabel.Text = "x";
+            this.professionErrorLabel.Visible = false;
             // 
             // distinguishingFeaturesErrorLabel
             // 
@@ -405,12 +406,12 @@
             this.birth.TabIndex = 10;
             this.birth.Text = "Дата народження:";
             // 
-            // proffesionTextBox
+            // professionTextBox
             // 
-            this.proffesionTextBox.Location = new System.Drawing.Point(121, 175);
-            this.proffesionTextBox.Name = "proffesionTextBox";
-            this.proffesionTextBox.Size = new System.Drawing.Size(176, 27);
-            this.proffesionTextBox.TabIndex = 12;
+            this.professionTextBox.Location = new System.Drawing.Point(121, 175);
+            this.professionTextBox.Name = "professionTextBox";
+            this.professionTextBox.Size = new System.Drawing.Size(176, 27);
+            this.professionTextBox.TabIndex = 12;
             // 
             // proffesion
             // 
@@ -564,7 +565,7 @@
         private System.Windows.Forms.Label languagesErrorLabel;
         private System.Windows.Forms.Label lastCrimeErrorLabel;
         private System.Windows.Forms.Label eyesColorErrorLabel;
-        private System.Windows.Forms.Label proffesionErrorLabel;
+        private System.Windows.Forms.Label professionErrorLabel;
         private System.Windows.Forms.Label distinguishingFeaturesErrorLabel;
         private System.Windows.Forms.Label aliasErrorLabel;
         private System.Windows.Forms.Label hairColorErrorLabel;
@@ -584,7 +585,7 @@
         private System.Windows.Forms.Label lastCrime;
         private System.Windows.Forms.TextBox lastCrimeTextBox;
         private System.Windows.Forms.Label birth;
-        private System.Windows.Forms.TextBox proffesionTextBox;
+        private System.Windows.Forms.TextBox professionTextBox;
         private System.Windows.Forms.Label proffesion;
         private System.Windows.Forms.Label hairColor;
         private System.Windows.Forms.TextBox distinguishingFeaturesTextBox;
