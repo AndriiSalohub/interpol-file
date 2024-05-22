@@ -11,22 +11,28 @@ namespace InterpolFile.Utilities
     {
         public static List<Criminal> SearchCriminals(List<Criminal> criminals, string searchText)
         {
-            searchText = searchText.ToLower();
+            string[] searchParams = searchText.Split(',');
 
+            // Convert search parameters to lowercase
+            searchParams = Array.ConvertAll(searchParams, p => p.ToLower().Trim());
+
+            // Perform search based on each parameter
             return criminals.Where(criminal =>
-                criminal.FirstName.ToLower().Contains(searchText) ||
-                criminal.LastName.ToLower().Contains(searchText) ||
-                criminal.HairColor.ToLower().Contains(searchText) ||
-                criminal.EyeColor.ToLower().Contains(searchText) ||
-                criminal.Alias.ToLower().Contains(searchText) ||
-                criminal.DistinguishingFeatures.ToLower().Contains(searchText) ||
-                criminal.CriminalProfession.ToLower().Contains(searchText) ||
-                criminal.LastCase.ToLower().Contains(searchText) ||
-                string.Join(", ", criminal.LanguagesKnown).ToLower().Contains(searchText) ||
-                criminal.LastKnownResidence.ToLower().Contains(searchText) ||
-                criminal.BirthPlace.ToLower().Contains(searchText) ||
-                criminal.DateOfBirth.Contains(searchText) ||
-                criminal.Height.ToString().Contains(searchText)
+                searchParams.All(param =>
+                    criminal.FirstName.ToLower().Contains(param) ||
+                    criminal.LastName.ToLower().Contains(param) ||
+                    criminal.HairColor.ToLower().Contains(param) ||
+                    criminal.EyeColor.ToLower().Contains(param) ||
+                    criminal.Alias.ToLower().Contains(param) ||
+                    criminal.DistinguishingFeatures.ToLower().Contains(param) ||
+                    criminal.CriminalProfession.ToLower().Contains(param) ||
+                    criminal.LastCase.ToLower().Contains(param) ||
+                    string.Join(", ", criminal.LanguagesKnown).ToLower().Contains(param) ||
+                    criminal.LastKnownResidence.ToLower().Contains(param) ||
+                    criminal.BirthPlace.ToLower().Contains(param) ||
+                    criminal.DateOfBirth.Contains(param) ||
+                    criminal.Height.ToString().Contains(param)
+                )
             ).ToList();
         }
 

@@ -290,7 +290,7 @@
             this.heightUpDown.Size = new System.Drawing.Size(127, 27);
             this.heightUpDown.TabIndex = 8;
             this.heightUpDown.Value = new decimal(new int[] {
-            30,
+            60,
             0,
             0,
             0});
@@ -548,7 +548,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "CriminalEditForm";
-            this.Text = "CriminalEditForm";
+            this.Text = "Редагування Злочинця";
             this.criminalFormPanel.ResumeLayout(false);
             this.criminalFormPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).EndInit();

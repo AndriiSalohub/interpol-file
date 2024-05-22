@@ -345,12 +345,12 @@
             this.birthDateTimePicker.CustomFormat = "dd/MM/yyyy";
             this.birthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.birthDateTimePicker.Location = new System.Drawing.Point(178, 93);
-            this.birthDateTimePicker.MaxDate = new System.DateTime(2006, 6, 1, 0, 0, 0, 0);
+            this.birthDateTimePicker.MaxDate = new System.DateTime(2006, 6, 8, 0, 0, 0, 0);
             this.birthDateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.birthDateTimePicker.Name = "birthDateTimePicker";
             this.birthDateTimePicker.Size = new System.Drawing.Size(199, 27);
             this.birthDateTimePicker.TabIndex = 9;
-            this.birthDateTimePicker.Value = new System.DateTime(2006, 6, 1, 0, 0, 0, 0);
+            this.birthDateTimePicker.Value = new System.DateTime(2006, 6, 8, 0, 0, 0, 0);
             // 
             // lastPlaceErrorLabel
             // 
@@ -489,7 +489,7 @@
             this.heightUpDown.Size = new System.Drawing.Size(127, 27);
             this.heightUpDown.TabIndex = 8;
             this.heightUpDown.Value = new decimal(new int[] {
-            30,
+            60,
             0,
             0,
             0});

@@ -39,15 +39,15 @@ namespace InterpolFile
             this.containerPanel = new System.Windows.Forms.Panel();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openAs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAs = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menu = new System.Windows.Forms.MenuStrip();
-            this.saveAs = new System.Windows.Forms.ToolStripMenuItem();
-            this.openAs = new System.Windows.Forms.ToolStripMenuItem();
             this.navigationPanel.SuspendLayout();
             this.menu.SuspendLayout();
             this.SuspendLayout();
@@ -69,7 +69,7 @@ namespace InterpolFile
             // 
             // divider
             // 
-            this.divider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.divider.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.divider.BackColor = System.Drawing.Color.MidnightBlue;
             this.divider.Location = new System.Drawing.Point(0, 0);
@@ -144,14 +144,21 @@ namespace InterpolFile
             this.openToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
             this.openToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.openToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.openToolStripMenuItem.Text = "&Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
+            // 
+            // openAs
+            // 
+            this.openAs.Name = "openAs";
+            this.openAs.Size = new System.Drawing.Size(163, 22);
+            this.openAs.Text = "Open as";
+            this.openAs.Click += new System.EventHandler(this.openAs_Click);
             // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
-            this.toolStripSeparator.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator.Size = new System.Drawing.Size(160, 6);
             // 
             // saveToolStripMenuItem
             // 
@@ -159,19 +166,26 @@ namespace InterpolFile
             this.saveToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             this.saveToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.saveToolStripMenuItem.Text = "&Save";
             this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // saveAs
+            // 
+            this.saveAs.Name = "saveAs";
+            this.saveAs.Size = new System.Drawing.Size(163, 22);
+            this.saveAs.Text = "Save as";
+            this.saveAs.Click += new System.EventHandler(this.saveAs_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(160, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(163, 22);
             this.exitToolStripMenuItem.Text = "E&xit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -207,20 +221,6 @@ namespace InterpolFile
             this.menu.TabIndex = 2;
             this.menu.Text = "menu";
             // 
-            // saveAs
-            // 
-            this.saveAs.Name = "saveAs";
-            this.saveAs.Size = new System.Drawing.Size(180, 22);
-            this.saveAs.Text = "Save as";
-            this.saveAs.Click += new System.EventHandler(this.saveAs_Click);
-            // 
-            // openAs
-            // 
-            this.openAs.Name = "openAs";
-            this.openAs.Size = new System.Drawing.Size(180, 22);
-            this.openAs.Text = "Open as";
-            this.openAs.Click += new System.EventHandler(this.openAs_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -232,7 +232,7 @@ namespace InterpolFile
             this.MainMenuStrip = this.menu;
             this.MinimumSize = new System.Drawing.Size(1500, 970);
             this.Name = "MainForm";
-            this.Text = "Form1";
+            this.Text = "Картотека Інтерполу";
             this.navigationPanel.ResumeLayout(false);
             this.menu.ResumeLayout(false);
             this.menu.PerformLayout();

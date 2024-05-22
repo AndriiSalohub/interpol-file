@@ -85,7 +85,7 @@ namespace InterpolFile.Forms
         {
             if (Validator.ValidateFields(fieldsToValidate))
             {
-                UpdateCriminal();
+                EditCriminal();
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }
@@ -94,21 +94,23 @@ namespace InterpolFile.Forms
                 this.DialogResult = DialogResult.None;
             }
         }
-        private void UpdateCriminal()
+
+        private void EditCriminal()
         {
-            criminal.FirstName = firstNameTextBox.Text;
-            criminal.LastName = lastNameTextBox.Text;
-            criminal.HairColor = hairColorTextBox.Text;
-            criminal.EyeColor = eyesColorTextBox.Text;
-            criminal.Height = (int)heightUpDown.Value;
-            criminal.DateOfBirth = birthDateTimePicker.Value.ToShortDateString();
-            criminal.BirthPlace = birthPlaceTextBox.Text;
-            criminal.Alias = aliasTextBox.Text;
-            criminal.DistinguishingFeatures = distinguishingFeaturesTextBox.Text;
-            criminal.CriminalProfession = professionTextBox.Text;
-            criminal.LastCase = lastCrimeTextBox.Text;
-            criminal.LanguagesKnown = languagesTextBox.Text.Split(',').ToList();
-            criminal.LastKnownResidence = lastKnownPlaceTextBox.Text;
+            Criminal newCriminal = new Criminal(firstNameTextBox.Text, lastNameTextBox.Text, hairColorTextBox.Text,
+                                                eyesColorTextBox.Text, (int)heightUpDown.Value, birthDateTimePicker.Value.ToShortDateString(),
+                                                birthPlaceTextBox.Text, aliasTextBox.Text, distinguishingFeaturesTextBox.Text,
+                                                professionTextBox.Text, lastCrimeTextBox.Text, languagesTextBox.Text.Split(',').ToList(),
+                                                lastKnownPlaceTextBox.Text);
+
+            if (isFromArchive)
+            {
+                archive.EditCriminal(criminal, newCriminal);
+            }
+            else
+            {
+                fileIndex.EditCriminal(criminal, newCriminal);
+            }
         }
 
         private void removeButton_Click(object sender, EventArgs e)

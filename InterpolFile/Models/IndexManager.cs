@@ -27,6 +27,15 @@ namespace InterpolFile.Models
             Criminals.Add(criminal);
         }
 
+        public void EditCriminal(Criminal oldCriminal, Criminal newCriminal)
+        {
+            int index = Criminals.FindIndex(c => c.FirstName == oldCriminal.FirstName && c.LastName == oldCriminal.LastName);
+            if (index != -1)
+            {
+                Criminals[index] = newCriminal;
+            }
+        }
+
         public void SaveCriminals(string path)
         {
             var options = new JsonSerializerOptions
