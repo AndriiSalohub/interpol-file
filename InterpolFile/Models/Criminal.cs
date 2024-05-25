@@ -21,10 +21,11 @@ namespace InterpolFile.Models
         public string LastCase { get; set; }
         public List<string> LanguagesKnown { get; set; }
         public string LastKnownResidence { get; set; }
+        public string Image { get; set; }
 
         public Criminal(string firstName, string lastName, string hairColor, string eyeColor, int height,
                        string dateOfBirth, string birthPlace, string alias, string distinguishingFeatures,
-                       string criminalProfession, string lastCase, List<string> languagesKnown, string lastKnownResidence)
+                       string criminalProfession, string lastCase, List<string> languagesKnown, string lastKnownResidence, string image)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -39,6 +40,7 @@ namespace InterpolFile.Models
             LastCase = lastCase;
             LanguagesKnown = languagesKnown;
             LastKnownResidence = lastKnownResidence;
+            Image = image;
         }
 
         public Criminal() { }

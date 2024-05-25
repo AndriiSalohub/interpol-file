@@ -71,14 +71,17 @@
             this.removeButton = new System.Windows.Forms.Button();
             this.archiveButton = new System.Windows.Forms.Button();
             this.backFromArchiveButton = new System.Windows.Forms.Button();
+            this.imageLabel = new System.Windows.Forms.Label();
+            this.criminalImage = new System.Windows.Forms.PictureBox();
             this.criminalFormPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.criminalImage)).BeginInit();
             this.SuspendLayout();
             // 
             // submitButton
             // 
             this.submitButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.submitButton.Location = new System.Drawing.Point(509, 280);
+            this.submitButton.Location = new System.Drawing.Point(757, 280);
             this.submitButton.Name = "submitButton";
             this.submitButton.Size = new System.Drawing.Size(130, 35);
             this.submitButton.TabIndex = 1;
@@ -89,7 +92,7 @@
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(645, 280);
+            this.cancelButton.Location = new System.Drawing.Point(893, 280);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(130, 35);
             this.cancelButton.TabIndex = 2;
@@ -146,7 +149,7 @@
             this.birthDateTimePicker.CustomFormat = "dd/MM/yyyy";
             this.birthDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.birthDateTimePicker.Location = new System.Drawing.Point(178, 93);
-            this.birthDateTimePicker.MaxDate = new System.DateTime(2006, 6, 1, 0, 0, 0, 0);
+            this.birthDateTimePicker.MaxDate = new System.DateTime(2006, 6, 8, 0, 0, 0, 0);
             this.birthDateTimePicker.MinDate = new System.DateTime(1900, 1, 1, 0, 0, 0, 0);
             this.birthDateTimePicker.Name = "birthDateTimePicker";
             this.birthDateTimePicker.Size = new System.Drawing.Size(199, 27);
@@ -533,11 +536,35 @@
             this.backFromArchiveButton.Visible = false;
             this.backFromArchiveButton.Click += new System.EventHandler(this.backFromArchiveButton_Click);
             // 
+            // imageLabel
+            // 
+            this.imageLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.imageLabel.AutoSize = true;
+            this.imageLabel.Location = new System.Drawing.Point(805, 23);
+            this.imageLabel.Name = "imageLabel";
+            this.imageLabel.Size = new System.Drawing.Size(188, 21);
+            this.imageLabel.TabIndex = 109;
+            this.imageLabel.Text = "Зображення злочинця:";
+            // 
+            // criminalImage
+            // 
+            this.criminalImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.criminalImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.criminalImage.Location = new System.Drawing.Point(809, 47);
+            this.criminalImage.Name = "criminalImage";
+            this.criminalImage.Size = new System.Drawing.Size(214, 227);
+            this.criminalImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.criminalImage.TabIndex = 108;
+            this.criminalImage.TabStop = false;
+            this.criminalImage.Click += new System.EventHandler(this.criminalImage_Click);
+            // 
             // CriminalEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(787, 339);
+            this.ClientSize = new System.Drawing.Size(1035, 339);
+            this.Controls.Add(this.imageLabel);
+            this.Controls.Add(this.criminalImage);
             this.Controls.Add(this.backFromArchiveButton);
             this.Controls.Add(this.archiveButton);
             this.Controls.Add(this.removeButton);
@@ -552,7 +579,9 @@
             this.criminalFormPanel.ResumeLayout(false);
             this.criminalFormPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.criminalImage)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -600,5 +629,7 @@
         private System.Windows.Forms.Button removeButton;
         private System.Windows.Forms.Button archiveButton;
         private System.Windows.Forms.Button backFromArchiveButton;
+        private System.Windows.Forms.Label imageLabel;
+        private System.Windows.Forms.PictureBox criminalImage;
     }
 }

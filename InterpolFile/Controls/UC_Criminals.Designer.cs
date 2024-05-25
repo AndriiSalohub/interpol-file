@@ -85,8 +85,11 @@
             this.searchButton = new System.Windows.Forms.Button();
             this.sortOptionsComboBox = new System.Windows.Forms.ComboBox();
             this.sortButton = new System.Windows.Forms.Button();
+            this.criminalImage = new System.Windows.Forms.PictureBox();
+            this.imageLabel = new System.Windows.Forms.Label();
             this.criminalFormPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.criminalImage)).BeginInit();
             this.SuspendLayout();
             // 
             // criminalListTitle
@@ -335,7 +338,7 @@
             this.criminalFormPanel.Controls.Add(this.alias);
             this.criminalFormPanel.Controls.Add(this.eyesColor);
             this.criminalFormPanel.Controls.Add(this.eyesColorTextBox);
-            this.criminalFormPanel.Location = new System.Drawing.Point(369, 99);
+            this.criminalFormPanel.Location = new System.Drawing.Point(244, 99);
             this.criminalFormPanel.Name = "criminalFormPanel";
             this.criminalFormPanel.Size = new System.Drawing.Size(763, 262);
             this.criminalFormPanel.TabIndex = 32;
@@ -481,7 +484,7 @@
             0,
             0});
             this.heightUpDown.Minimum = new decimal(new int[] {
-            30,
+            60,
             0,
             0,
             0});
@@ -614,6 +617,7 @@
             // 
             // searchTextBox
             // 
+            this.searchTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.searchTextBox.Location = new System.Drawing.Point(369, 429);
             this.searchTextBox.Name = "searchTextBox";
             this.searchTextBox.Size = new System.Drawing.Size(311, 27);
@@ -621,6 +625,7 @@
             // 
             // searchButton
             // 
+            this.searchButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.searchButton.Location = new System.Drawing.Point(686, 429);
             this.searchButton.Name = "searchButton";
             this.searchButton.Size = new System.Drawing.Size(89, 29);
@@ -631,6 +636,7 @@
             // 
             // sortOptionsComboBox
             // 
+            this.sortOptionsComboBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.sortOptionsComboBox.FormattingEnabled = true;
             this.sortOptionsComboBox.Items.AddRange(new object[] {
             "Виберіть сортування",
@@ -647,6 +653,7 @@
             // 
             // sortButton
             // 
+            this.sortButton.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.sortButton.Location = new System.Drawing.Point(1015, 429);
             this.sortButton.Name = "sortButton";
             this.sortButton.Size = new System.Drawing.Size(116, 29);
@@ -655,10 +662,34 @@
             this.sortButton.UseVisualStyleBackColor = true;
             this.sortButton.Click += new System.EventHandler(this.sortButton_Click);
             // 
+            // criminalImage
+            // 
+            this.criminalImage.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.criminalImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.criminalImage.Location = new System.Drawing.Point(1042, 134);
+            this.criminalImage.Name = "criminalImage";
+            this.criminalImage.Size = new System.Drawing.Size(214, 227);
+            this.criminalImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.criminalImage.TabIndex = 106;
+            this.criminalImage.TabStop = false;
+            this.criminalImage.Click += new System.EventHandler(this.criminalImage_Click);
+            // 
+            // imageLabel
+            // 
+            this.imageLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.imageLabel.AutoSize = true;
+            this.imageLabel.Location = new System.Drawing.Point(1038, 110);
+            this.imageLabel.Name = "imageLabel";
+            this.imageLabel.Size = new System.Drawing.Size(188, 21);
+            this.imageLabel.TabIndex = 107;
+            this.imageLabel.Text = "Зображення злочинця:";
+            // 
             // UC_Criminals
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.imageLabel);
+            this.Controls.Add(this.criminalImage);
             this.Controls.Add(this.sortButton);
             this.Controls.Add(this.sortOptionsComboBox);
             this.Controls.Add(this.searchButton);
@@ -674,6 +705,7 @@
             this.criminalFormPanel.ResumeLayout(false);
             this.criminalFormPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.heightUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.criminalImage)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -738,5 +770,7 @@
         private System.Windows.Forms.Button searchButton;
         private System.Windows.Forms.ComboBox sortOptionsComboBox;
         private System.Windows.Forms.Button sortButton;
+        private System.Windows.Forms.PictureBox criminalImage;
+        private System.Windows.Forms.Label imageLabel;
     }
 }

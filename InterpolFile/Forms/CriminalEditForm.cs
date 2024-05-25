@@ -20,6 +20,7 @@ namespace InterpolFile.Forms
         public event Action CriminalDeleted;
         public bool isFromArchive = false;
         private Dictionary<TextBoxBase, Label> fieldsToValidate;
+        const string PATH_TO_IMAGE_PLACEHOLDER = ".\\No_Image.png";
 
         public CriminalEditForm(FileIndex fileIndex, Criminal criminal, Archive archive)
         {
@@ -79,6 +80,16 @@ namespace InterpolFile.Forms
             languagesTextBox.Text = String.Join(",", criminal.LanguagesKnown);
             lastCrimeTextBox.Text = criminal.LastCase;
             lastKnownPlaceTextBox.Text = criminal.LastKnownResidence;
+
+            if (!string.IsNullOrEmpty(criminal.Image))
+            {
+
+                criminalImage.ImageLocation = criminal.Image;
+            }
+            else
+            {
+                criminalImage.ImageLocation = PATH_TO_IMAGE_PLACEHOLDER;
+            }
         }
 
         private void submitButton_Click(object sender, EventArgs e)
@@ -101,7 +112,7 @@ namespace InterpolFile.Forms
                                                 eyesColorTextBox.Text, (int)heightUpDown.Value, birthDateTimePicker.Value.ToShortDateString(),
                                                 birthPlaceTextBox.Text, aliasTextBox.Text, distinguishingFeaturesTextBox.Text,
                                                 professionTextBox.Text, lastCrimeTextBox.Text, languagesTextBox.Text.Split(',').ToList(),
-                                                lastKnownPlaceTextBox.Text);
+                                                lastKnownPlaceTextBox.Text, criminalImage.ImageLocation);
 
             if (isFromArchive)
             {
@@ -185,6 +196,21 @@ namespace InterpolFile.Forms
 
                 this.DialogResult = DialogResult.OK;
                 this.Close();
+            }
+        }
+
+        private void criminalImage_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog imageDialog = new OpenFileDialog())
+            {
+                imageDialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files|*.png|All Files (*.*)|*.*\"";
+
+                if (imageDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string imagePath = imageDialog.FileName;
+
+                    criminalImage.ImageLocation = imagePath;
+                }
             }
         }
     }

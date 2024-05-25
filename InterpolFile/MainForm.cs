@@ -177,7 +177,6 @@ namespace InterpolFile
                     }
                     MessageBox.Show("Данні було успішно збережено!", "Save Data", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
             }
         }
         private List<Criminal> GetCurrentSearchResults(object list)

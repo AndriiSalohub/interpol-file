@@ -17,11 +17,11 @@ namespace InterpolFile.Models
 
         public void AddCriminal(string firstName, string lastName, string hairColor, string eyeColor, int height,
                                string dateOfBirth, string birthPlace, string alias, string distinguishingFeatures,
-                               string criminalProfession, string lastCase, List<string> languagesKnown, string lastKnownResidence)
+                               string criminalProfession, string lastCase, List<string> languagesKnown, string lastKnownResidence, string image)
         {
             Criminals.Add(new Criminal(firstName, lastName, hairColor, eyeColor, height,
                         dateOfBirth, birthPlace, alias, distinguishingFeatures,
-                        criminalProfession, lastCase, languagesKnown, lastKnownResidence));
+                        criminalProfession, lastCase, languagesKnown, lastKnownResidence, image));
         }
 
         public void DeleteCriminal(string firstName, string lastName)

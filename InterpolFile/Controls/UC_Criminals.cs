@@ -93,7 +93,7 @@ namespace InterpolFile.Controls
                 (int)heightUpDown.Value, birthDateTimePicker.Text, birthPlaceTextBox.Text,
                 aliasTextBox.Text, distinguishingFeaturesTextBox.Text,
                 professionTextBox.Text, lastCrimeTextBox.Text,
-                languagesTextBox.Text.Split(',').ToList(), lastKnownPlaceTextBox.Text);
+                languagesTextBox.Text.Split(',').ToList(), lastKnownPlaceTextBox.Text, criminalImage.ImageLocation);
         }
 
         private void ResetForm()
@@ -109,10 +109,12 @@ namespace InterpolFile.Controls
             lastCrimeTextBox.Text = "";
             languagesTextBox.Text = "";
             lastKnownPlaceTextBox.Text = "";
+            criminalImage.ImageLocation = "";
 
             heightUpDown.Value = heightUpDown.Minimum;
 
             birthDateTimePicker.Value = birthDateTimePicker.MaxDate;
+
         }
 
 
@@ -160,6 +162,21 @@ namespace InterpolFile.Controls
             if (e.KeyCode == Keys.Space)
             {
                 CriminalUtils.OpenSelectedCriminalEditForm(this, fileIndex, archive, criminalsList);
+            }
+        }
+
+        private void criminalImage_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog imageDialog = new OpenFileDialog())
+            {
+                imageDialog.Filter = "jpg files(*.jpg)|*.jpg| PNG files|*.png|All Files (*.*)|*.*\"";
+
+                if (imageDialog.ShowDialog() == DialogResult.OK)
+                {
+                    string imagePath = imageDialog.FileName;
+
+                    criminalImage.ImageLocation = imagePath;
+                }
             }
         }
     }

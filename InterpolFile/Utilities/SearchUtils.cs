@@ -13,10 +13,8 @@ namespace InterpolFile.Utilities
         {
             string[] searchParams = searchText.Split(',');
 
-            // Convert search parameters to lowercase
             searchParams = Array.ConvertAll(searchParams, p => p.ToLower().Trim());
 
-            // Perform search based on each parameter
             return criminals.Where(criminal =>
                 searchParams.All(param =>
                     criminal.FirstName.ToLower().Contains(param) ||
